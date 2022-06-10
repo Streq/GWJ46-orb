@@ -74,7 +74,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="skel"
+config/name="GWJ46-orb"
+run/main_scene="res://src/main.tscn"
 config/icon="res://assets/texture/icon.png"
 
 [physics]
