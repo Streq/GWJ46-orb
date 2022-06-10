@@ -142,7 +142,7 @@ jobs:
           files: exports/*
   PushExportsToItch:
     needs: BuildAndPublish
-    if: ${{ contains(github.ref, 'main') }}
+    if: ${{ env.PUSH_TO_ITCH == 'true' }}
     #if: ${{ false }}
     runs-on: ubuntu-latest
     env:
