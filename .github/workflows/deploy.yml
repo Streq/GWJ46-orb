@@ -140,17 +140,18 @@ jobs:
         with:
           tag_name: ${{ env.VERSION }}
           files: exports/*
+  ShouldPushToItch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail If Should Not Push To Itch
+        if: ${{ env.PUSH_TO_ITCH != 'true'}}
+        run: exit 1
   PushExportsToItch:
-    needs: [BuildAndPublish]
+    needs: [BuildAndPublish, ShouldPushToItch]
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ needs.BuildAndPublish.outputs.version }}
-      PUSH_TO_ITCH: ${{ env.PUSH_TO_ITCH }} 
     steps:
-      - name: Fail If Should Not Push To Itch
-        if: ${{ PUSH_TO_ITCH != 'true' }}
-        run:
-          exit 1
       - name: Download Exports
         uses: actions/download-artifact@v2
       - name: Download + Authorize Butler
@@ -196,16 +197,14 @@ jobs:
     #needs: [BuildAndPublish, CreateNewGithubRelease]
     if: ${{ always() }}
     env:
-      #DID_PREV_JOBS_SUCCEED: ${{ contains(needs.BuildAndPublish.result, 'success' ) && contains(needs.CreateNewGithubRelease.result, 'success' ) }}
-      PUSH_TO_ITCH: ${{ env.PUSH_TO_ITCH }} 
-      DID_PREV_JOBS_SUCCEED: ${{ contains(needs.BuildAndPublish.result, 'success' ) && contains(needs.CreateNewGithubRelease.result, 'success' ) && ( contains(needs.PushExportsToItch.result, 'success' ) or env.PUSH_TO_ITCH != 'true' ) }}
+      DID_PREV_JOBS_SUCCEED: ${{ contains(needs.BuildAndPublish.result, 'success' ) && contains(needs.CreateNewGithubRelease.result, 'success' ) && !contains(needs.PushExportsToItch.result, 'failure' ) }}
       VERSION: ${{ needs.BuildAndPublish.outputs.version }}
       COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
       RELEASE_URL: ${{ needs.CreateNewGithubRelease.outputs.url }}
     runs-on: ubuntu-latest
     steps:
       - name: Set Itch URL
-        if: ${{ PUSH_TO_ITCH == 'true' }}
+        if: ${{ env.PUSH_TO_ITCH == 'true' }}
         id: itch
         run: |
           ITCH_LINK="\n[Play it on Itch!](https://${ITCH_USERNAME}.itch.io/${ITCH_PROJECT_NAME})\n"
