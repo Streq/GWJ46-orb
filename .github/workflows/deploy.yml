@@ -141,12 +141,14 @@ jobs:
           tag_name: ${{ env.VERSION }}
           files: exports/*
   ShouldPushToItch:
+    outputs: 
+      PUSH_TO_ITCH: ${{ steps.set_push_to_itch.outputs.PUSH_TO_ITCH }}
     runs-on: ubuntu-latest
     steps:
       - name: Set PUSH_TO_ITCH variable
-        run: echo "::set-output name=PUSH_TO_ITCH::$PUSH_TO_ITCH"
-        env:
-          PUSH_TO_ITCH: ${{ env.PUSH_TO_ITCH }}
+        id: set_push_to_itch
+        if: ${{ env.PUSH_TO_ITCH == 'true'}}
+        run: echo "::set-output name=PUSH_TO_ITCH::true"
   PushExportsToItch:
     needs: [BuildAndPublish, ShouldPushToItch]
     if: ${{ needs.ShouldPushToItch.outputs.PUSH_TO_ITCH == 'true' }}
