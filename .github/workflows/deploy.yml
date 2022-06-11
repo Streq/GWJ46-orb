@@ -140,22 +140,17 @@ jobs:
         with:
           tag_name: ${{ env.VERSION }}
           files: exports/*
-  ShouldPushToItch:
-    outputs: 
-      PUSH_TO_ITCH: ${{ steps.set_push_to_itch.outputs.PUSH_TO_ITCH }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set PUSH_TO_ITCH variable
-        id: set_push_to_itch
-        if: ${{ env.PUSH_TO_ITCH == 'true'}}
-        run: echo "::set-output name=PUSH_TO_ITCH::true"
   PushExportsToItch:
-    needs: [BuildAndPublish, ShouldPushToItch]
-    if: ${{ needs.ShouldPushToItch.outputs.PUSH_TO_ITCH == 'true' }}
+    needs: [BuildAndPublish]
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ needs.BuildAndPublish.outputs.version }}
+      PUSH_TO_ITCH: ${{ env.PUSH_TO_ITCH }} 
     steps:
+      - name: Fail If Should Not Push To Itch
+        if: ${{ PUSH_TO_ITCH != 'true' }}
+        run:
+          exit 1
       - name: Download Exports
         uses: actions/download-artifact@v2
       - name: Download + Authorize Butler
@@ -202,14 +197,15 @@ jobs:
     if: ${{ always() }}
     env:
       #DID_PREV_JOBS_SUCCEED: ${{ contains(needs.BuildAndPublish.result, 'success' ) && contains(needs.CreateNewGithubRelease.result, 'success' ) }}
-      DID_PREV_JOBS_SUCCEED: ${{ contains(needs.BuildAndPublish.result, 'success' ) && contains(needs.CreateNewGithubRelease.result, 'success' ) && !contains(needs.PushExportsToItch.result, 'failure' ) }}
+      PUSH_TO_ITCH: ${{ env.PUSH_TO_ITCH }} 
+      DID_PREV_JOBS_SUCCEED: ${{ contains(needs.BuildAndPublish.result, 'success' ) && contains(needs.CreateNewGithubRelease.result, 'success' ) && ( contains(needs.PushExportsToItch.result, 'success' ) or env.PUSH_TO_ITCH != 'true' ) }}
       VERSION: ${{ needs.BuildAndPublish.outputs.version }}
       COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
       RELEASE_URL: ${{ needs.CreateNewGithubRelease.outputs.url }}
     runs-on: ubuntu-latest
     steps:
       - name: Set Itch URL
-        if: ${{ env.PUSH_TO_ITCH == 'true' }}
+        if: ${{ PUSH_TO_ITCH == 'true' }}
         id: itch
         run: |
           ITCH_LINK="\n[Play it on Itch!](https://${ITCH_USERNAME}.itch.io/${ITCH_PROJECT_NAME})\n"
