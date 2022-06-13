@@ -8,6 +8,7 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="attraction_orb" instance=ExtResource( 1 )]
+collision_layer = 11
 physics_material_override = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -17,6 +18,7 @@ shape = SubResource( 1 )
 modulate = Color( 0, 1, 1, 1 )
 
 [node name="repulsion_area" parent="." index="2"]
+collision_layer = 8
 gravity = 9800.0
 
 [node name="Sprite" parent="repulsion_area" index="1"]

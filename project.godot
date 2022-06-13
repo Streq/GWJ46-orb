@@ -106,6 +106,7 @@ restart={
 2d_physics/layer_1="rigid"
 2d_physics/layer_2="orb"
 2d_physics/layer_3="repulsion"
+2d_physics/layer_4="attraction"
 
 [physics]
 
