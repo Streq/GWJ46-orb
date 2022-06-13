@@ -81,6 +81,7 @@ config/icon="res://assets/texture/icon.png"
 [autoload]
 
 Group="*res://src/global/group.gd"
+Levels="*res://src/global/levels.tscn"
 
 [importer_defaults]
 

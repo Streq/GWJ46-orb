@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/orbs/orb.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/texture/ballnoline10.png" type="Texture" id=2]
-[ext_resource path="res://src/effects/repulsion_area.gd" type="Script" id=3]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 128.0
+[ext_resource path="res://src/effects/repulsion_area.tscn" type="PackedScene" id=2]
 
 [node name="repulsion_orb" instance=ExtResource( 1 )]
 collision_layer = 7
@@ -14,22 +10,4 @@ collision_mask = 1
 [node name="Sprite" parent="." index="1"]
 modulate = Color( 0.921569, 0, 1, 1 )
 
-[node name="repulsion_area" type="Area2D" parent="." index="2"]
-collision_layer = 4
-collision_mask = 0
-space_override = 1
-gravity_point = true
-gravity_distance_scale = 0.01
-gravity_vec = Vector2( 0, 0 )
-gravity = -9800.0
-linear_damp = 0.0
-angular_damp = 0.0
-script = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="repulsion_area" index="0"]
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="repulsion_area" index="1"]
-modulate = Color( 0.968627, 0, 1, 0.196078 )
-scale = Vector2( 13, 13 )
-texture = ExtResource( 2 )
+[node name="repulsion_area" parent="." index="2" instance=ExtResource( 2 )]

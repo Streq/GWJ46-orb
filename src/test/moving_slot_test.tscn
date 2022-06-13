@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/terrain/rect_wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/player/poolstick_controller.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/test/balls_test.gd" type="Script" id=4]
+[ext_resource path="res://src/terrain/goal_zone.gd" type="Script" id=5]
+[ext_resource path="res://src/orbs/attraction_orb.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/orbs/slot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/terrain/fall_zone.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 513, 21 )
+scale = Vector2( 16.12, 1 )
+
+[node name="StaticBody2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 522, 586 )
+scale = Vector2( 16.12, 1 )
+
+[node name="StaticBody2D5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 520, 754 )
+scale = Vector2( 0.513081, 10.36 )
+
+[node name="StaticBody2D3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 26, 297 )
+rotation = 1.57079
+scale = Vector2( 16.12, 1 )
+
+[node name="StaticBody2D4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1010, 330 )
+rotation = 1.57079
+scale = Vector2( 16.12, 1 )
+
+[node name="poolstick_controller" parent="." instance=ExtResource( 3 )]
+layers = 2
+
+[node name="orb3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 776, 475 )
+
+[node name="slot" parent="." instance=ExtResource( 7 )]
+position = Vector2( 520, 391 )
+
+[node name="fall_zone" parent="." instance=ExtResource( 8 )]
+scale = Vector2( 46.2485, 4.04 )
+
+[node name="goal_zone" type="Area2D" parent="."]
+position = Vector2( 117, 513 )
+scale = Vector2( 5.76851, 5.08 )
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goal_zone"]
+shape = SubResource( 3 )
+
+[node name="Polygon2D" type="Polygon2D" parent="goal_zone"]
+color = Color( 0, 0.227451, 1, 0.537255 )
+polygon = PoolVector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
+
+[node name="fall_zone2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 100, 294 )
+scale = Vector2( 4.33573, -16.8169 )
+
+[node name="fall_zone3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 939, 294 )
+scale = Vector2( 4.33573, -16.8169 )
+
+[node name="attraction_orb" parent="." instance=ExtResource( 6 )]
+position = Vector2( 385, 437 )
+
+[connection signal="body_entered" from="goal_zone" to="goal_zone" method="_on_fall_zone_body_entered"]
