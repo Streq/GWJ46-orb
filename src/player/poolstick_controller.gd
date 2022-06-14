@@ -14,6 +14,7 @@ var point_of_impulse := Vector2()
 var point_of_release := Vector2()
 
 
+
 const IDLE = 0
 const AIMING = 1
 const SHOOTING = 2
@@ -37,11 +38,11 @@ func _physics_process(delta):
 			if orbs:
 #				print("hit something")
 				selected = orbs[0].collider
-				if selected.sleeping:
-					if Input.is_action_just_pressed("selected"):
-#						point_of_impulse = mouse_pos
+				if Input.is_action_just_pressed("selected"):
+					if selected.sleeping and !selected.been_hit:
 						point_of_impulse = selected.global_position
 						_change_state(AIMING)
+						
 				
 			else:
 				pass
@@ -84,7 +85,9 @@ func _change_state(new_state:int):
 			tween.start()
 			yield(tween, "tween_all_completed")
 			var impulse = get_power()*impulse_multiplier
-			selected.apply_impulse(selected.to_local(point_of_impulse), (point_of_impulse-point_of_release).normalized()*impulse)
-			yield(get_tree().create_timer(0.3),"timeout")
+			if selected.sleeping:
+				selected.apply_impulse(selected.to_local(point_of_impulse), (point_of_impulse-point_of_release).normalized()*impulse)
+				selected.been_hit = true
+				yield(get_tree().create_timer(0.3),"timeout")
 			_change_state(IDLE)
 			

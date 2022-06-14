@@ -4,10 +4,16 @@ extends Node
 onready var levels = get_children()
 var current_level = -1
 
+export var level_menu : PackedScene
+
+
 func next_level():
 	current_level += 1
-	reload_current_level()
-
+	if current_level>=levels.size():
+		get_tree().change_scene_to(level_menu)
+	else:
+		reload_current_level()
+	
 func prev_level():
 	current_level -= 1
 	reload_current_level()
