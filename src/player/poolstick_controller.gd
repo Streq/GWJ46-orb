@@ -35,7 +35,7 @@ func _physics_process(delta):
 			# Check if there is a collision at the mouse position
 			var orbs = space.intersect_point(mouse_pos, 1, [], layers)
 			if orbs:
-				print("hit something")
+#				print("hit something")
 				selected = orbs[0].collider
 				if selected.sleeping:
 					if Input.is_action_just_pressed("selected"):
@@ -44,7 +44,8 @@ func _physics_process(delta):
 						_change_state(AIMING)
 				
 			else:
-				print("no hit")
+				pass
+#				print("no hit")
 		AIMING:
 			poolstick.global_position = mouse_pos
 			poolstick.global_rotation = point_of_impulse.angle_to_point(mouse_pos)

@@ -1,16 +1,27 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var levels = get_children()
+var current_level = -1
 
+func next_level():
+	current_level += 1
+	reload_current_level()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func prev_level():
+	current_level -= 1
+	reload_current_level()
 
+func _input(event):
+	if OS.is_debug_build():
+		if event.is_action_pressed("next_level"):
+			next_level()
+		if event.is_action_pressed("prev_level"):
+			prev_level()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func goto_level(index):
+	current_level = index
+	reload_current_level()
+
+func reload_current_level():
+	get_tree().change_scene_to(levels[current_level].scene)

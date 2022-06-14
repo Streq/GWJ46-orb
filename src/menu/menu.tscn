@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/menu/scene_change.gd" type="Script" id=1]
+[ext_resource path="res://src/menu/level_select.tscn" type="PackedScene" id=2]
+
+[node name="main_menu" type="CanvasLayer" groups=["menu"]]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 317.0
+margin_top = 137.0
+margin_right = 403.0
+margin_bottom = 151.0
+rect_scale = Vector2( 4.2, 5.16 )
+text = "orb pool golf????"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 481.0
+margin_top = 280.0
+margin_right = 493.0
+margin_bottom = 300.0
+
+[node name="play_button" type="Button" parent="HBoxContainer"]
+margin_right = 38.0
+margin_bottom = 20.0
+text = "play"
+script = ExtResource( 1 )
+scene = ExtResource( 2 )
+
+[connection signal="pressed" from="HBoxContainer/play_button" to="HBoxContainer/play_button" method="trigger"]
