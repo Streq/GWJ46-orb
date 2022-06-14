@@ -10,7 +10,7 @@
 [ext_resource path="res://src/terrain/fall_zone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=9]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 1 )]

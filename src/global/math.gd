@@ -16,3 +16,11 @@ static func approach_angle(from: float, to: float, amount: float) -> float:
 	var result = approach(from, from + angle_distance(from, to), amount)
 #	print("from:", from,", to:", to, ", amount:", amount, ", result:", result)
 	return result
+
+static func clamp_to_radius(value: Vector2, center: Vector2, radius: float) -> Vector2:
+	var distance = value - center
+	var length = distance.length()
+	if length > radius:
+		return center + distance*(radius/length)
+	else:
+		return value

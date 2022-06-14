@@ -24,7 +24,7 @@ var state = IDLE
 var mouse_pos := Vector2()
 
 export var max_dist := 256.0
-var impulse_multiplier = 600.0
+export var impulse_multiplier = 1200.0
 
 func _ready():
 	_change_state(IDLE)
@@ -51,14 +51,10 @@ func _physics_process(delta):
 				pass
 #				print("no hit")
 		AIMING:
-			poolstick.global_position = mouse_pos
+			poolstick.global_position = Math.clamp_to_radius(mouse_pos, point_of_impulse, max_dist)
 			poolstick.global_rotation = point_of_impulse.angle_to_point(mouse_pos)
-			var power =  get_power()
-			if power>1:
-				poolstick.global_position = point_of_impulse+(mouse_pos-point_of_impulse)/power
-			
+			point_of_release = poolstick.global_position
 			if Input.is_action_just_released("selected"):
-				point_of_release = mouse_pos
 				_change_state(SHOOTING)
 		SHOOTING:
 			pass
@@ -73,7 +69,7 @@ func _draw():
 			draw_line(poolstick.position, point_of_impulse, color)
 
 func get_power():
-	return (mouse_pos-point_of_impulse).length()/max_dist
+	return (point_of_release-point_of_impulse).length()/max_dist
 
 func _change_state(new_state:int):
 	state = new_state
@@ -84,7 +80,7 @@ func _change_state(new_state:int):
 			poolstick.visible = true
 			poolstick.global_position = mouse_pos
 		SHOOTING:
-			tween.interpolate_property(poolstick, "global_position", poolstick.global_position, point_of_impulse, 0.1)
+			tween.interpolate_property(poolstick, "global_position", point_of_release, point_of_impulse, 0.1)
 			tween.start()
 			yield(tween, "tween_all_completed")
 			var impulse = get_power()*impulse_multiplier
