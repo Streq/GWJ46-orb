@@ -26,6 +26,9 @@ var mouse_pos := Vector2()
 export var max_dist := 256.0
 var impulse_multiplier = 600.0
 
+func _ready():
+	_change_state(IDLE)
+
 func _physics_process(delta):
 	mouse_pos = get_global_mouse_position()
 	match state:

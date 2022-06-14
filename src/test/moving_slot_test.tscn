@@ -4,12 +4,11 @@
 [ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/player/poolstick_controller.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=4]
-[ext_resource path="res://src/terrain/goal_zone.gd" type="Script" id=5]
+[ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/orbs/attraction_orb.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/orbs/slot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/terrain/fall_zone.tscn" type="PackedScene" id=8]
-
-[sub_resource type="RectangleShape2D" id=3]
+[ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
@@ -48,29 +47,24 @@ position = Vector2( 520, 391 )
 [node name="fall_zone" parent="." instance=ExtResource( 8 )]
 scale = Vector2( 46.2485, 4.04 )
 
-[node name="goal_zone" type="Area2D" parent="."]
-position = Vector2( 117, 513 )
-scale = Vector2( 5.76851, 5.08 )
-collision_layer = 0
-collision_mask = 2
-script = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="goal_zone"]
-shape = SubResource( 3 )
-
-[node name="Polygon2D" type="Polygon2D" parent="goal_zone"]
-color = Color( 0, 0.227451, 1, 0.537255 )
-polygon = PoolVector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
-
 [node name="fall_zone2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 100, 294 )
-scale = Vector2( 4.33573, -16.8169 )
+position = Vector2( 97, 250 )
+scale = Vector2( 3.91138, -11.7588 )
 
 [node name="fall_zone3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 939, 294 )
+position = Vector2( 939, 300 )
 scale = Vector2( 4.33573, -16.8169 )
 
 [node name="attraction_orb" parent="." instance=ExtResource( 6 )]
 position = Vector2( 385, 437 )
 
-[connection signal="body_entered" from="goal_zone" to="goal_zone" method="_on_fall_zone_body_entered"]
+[node name="goal_zone" parent="." instance=ExtResource( 5 )]
+position = Vector2( 283, 540 )
+scale = Vector2( 22.3602, 1.47325 )
+
+[node name="goal_zone2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 73, 448 )
+rotation = 1.57079
+scale = Vector2( 7.72019, 1.47325 )
+
+[node name="camera" parent="." instance=ExtResource( 9 )]
