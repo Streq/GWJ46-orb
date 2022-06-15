@@ -69,6 +69,8 @@ func _draw():
 			var power = get_power()
 			var color = Color.green.linear_interpolate(Color.red, power)
 			draw_line(poolstick.position, point_of_impulse, color)
+			draw_line(point_of_impulse, point_of_impulse + poolstick.position.direction_to(point_of_impulse)*128.0, color)
+			
 
 func get_power():
 	return (point_of_release-point_of_impulse).length()/max_dist

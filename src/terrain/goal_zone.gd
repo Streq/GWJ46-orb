@@ -2,4 +2,5 @@ extends Area2D
 
 
 func _on_goal_zone_body_entered(body):
-	Levels.next_level()
+	if body.is_in_group("can_win_with"):
+		Levels.next_level()
