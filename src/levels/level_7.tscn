@@ -5,7 +5,7 @@
 [ext_resource path="res://src/player/poolstick_controller.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=4]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/orbs/attraction_orb.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/orbs/repulsion_orb.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/orbs/slot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/terrain/fall_zone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=9]
@@ -13,59 +13,42 @@
 [node name="Node2D2" type="Node2D" groups=["level"]]
 script = ExtResource( 4 )
 
-[node name="StaticBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 513, 21 )
-scale = Vector2( 16.12, 1 )
-
-[node name="StaticBody2D2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 522, 586 )
-scale = Vector2( 16.12, 1 )
-
 [node name="StaticBody2D5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 520, 754 )
+position = Vector2( 663, 627 )
 scale = Vector2( 0.513081, 10.36 )
-
-[node name="StaticBody2D3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 26, 297 )
-rotation = 1.57079
-scale = Vector2( 16.12, 1 )
-
-[node name="StaticBody2D4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1010, 330 )
-rotation = 1.57079
-scale = Vector2( 16.12, 1 )
 
 [node name="poolstick_controller" parent="." instance=ExtResource( 3 )]
 layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 776, 475 )
+position = Vector2( 452, 359 )
 
 [node name="slot" parent="." instance=ExtResource( 7 )]
-position = Vector2( 520, 391 )
+position = Vector2( 834, 174 )
 
 [node name="fall_zone" parent="." instance=ExtResource( 8 )]
-scale = Vector2( 46.2485, 4.04 )
+position = Vector2( 513, 40 )
+scale = Vector2( 51.4059, 4.04 )
+
+[node name="fall_zone4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 513, 560 )
+scale = Vector2( 51.4059, 4.04 )
 
 [node name="fall_zone2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 97, 250 )
-scale = Vector2( 3.91138, -11.7588 )
+position = Vector2( 39, 300 )
+scale = Vector2( 3.98486, -30.3405 )
 
 [node name="fall_zone3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 939, 300 )
-scale = Vector2( 4.33573, -16.8169 )
-
-[node name="attraction_orb3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 355, 389 )
-
-[node name="goal_zone" parent="." instance=ExtResource( 5 )]
-position = Vector2( 283, 540 )
-scale = Vector2( 22.3602, 1.47325 )
+position = Vector2( 983, 297 )
+scale = Vector2( 3.98486, -30.3405 )
 
 [node name="goal_zone2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 73, 448 )
+position = Vector2( 795, 415 )
 rotation = 1.57079
-scale = Vector2( 7.72019, 1.47325 )
+scale = Vector2( 3.85943, 3.41222 )
 
 [node name="camera" parent="." instance=ExtResource( 9 )]
-current = false
+position = Vector2( 513, 300 )
+
+[node name="repulsion_orb" parent="." instance=ExtResource( 6 )]
+position = Vector2( 211, 192 )

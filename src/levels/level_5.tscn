@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -6,13 +6,43 @@
 [ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/terrain/rect_wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/terrain/fall_zone.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "pan"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( -1.7411, -1.7411, 2.6974 ),
+"update": 0,
+"values": [ Vector2( 512, -2736 ), Vector2( 512, -2736 ), Vector2( 512, 300 ) ]
+}
 
 [node name="Node2D" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 513, 21 )
+position = Vector2( 455, -3035 )
 scale = Vector2( 16.12, 1 )
 
 [node name="StaticBody2D2" parent="." instance=ExtResource( 5 )]
@@ -20,50 +50,27 @@ position = Vector2( 522, 586 )
 scale = Vector2( 16.12, 1 )
 
 [node name="StaticBody2D3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 26, 297 )
+position = Vector2( -9, -1212 )
 rotation = 1.57079
-scale = Vector2( 16.12, 1 )
+scale = Vector2( 57.2401, 1 )
 
 [node name="StaticBody2D4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1010, 330 )
+position = Vector2( 1006, -1258 )
 rotation = 1.57079
-scale = Vector2( 16.12, 1 )
-
-[node name="StaticBody2D5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 508, 144 )
-rotation = 1.57079
-scale = Vector2( 6.56775, 1.12792 )
+scale = Vector2( 57.2401, 1 )
 
 [node name="poolstick_controller" parent="." instance=ExtResource( 3 )]
 layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 322, 321 )
-
-[node name="orb6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 479, 444 )
-been_hit = true
-
-[node name="orb7" parent="." instance=ExtResource( 4 )]
-position = Vector2( 491, 461 )
-been_hit = true
+position = Vector2( 510, 444 )
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 699, 298 )
+position = Vector2( 510, -2790 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
-position = Vector2( 513, 298 )
 
-[node name="fall_zone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 518, 37 )
-
-[node name="fall_zone3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 83, 228 )
-rotation = -1.57079
-
-[node name="fall_zone4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 953, 283 )
-rotation = -1.57079
-
-[node name="fall_zone2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 518, 569 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="camera"]
+autoplay = "pan"
+anims/RESET = SubResource( 1 )
+anims/pan = SubResource( 2 )

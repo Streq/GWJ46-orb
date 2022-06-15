@@ -40,6 +40,7 @@ position = Vector2( 241, 300 )
 position = Vector2( 826, 297 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
+position = Vector2( 513, 297 )
 
 [node name="fall_zone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 520, 594 )

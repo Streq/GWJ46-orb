@@ -4,6 +4,12 @@ extends Camera2D
 var anchor_point := Vector2()
 var anchored := false
 
+func _physics_process(delta):
+	if Input.is_action_pressed("follow_ball"):
+		var poolstick = Group.get_one("poolstick")
+		var selected = poolstick.selected
+		if is_instance_valid(selected) and !selected.sleeping:
+			global_position = selected.global_position
 
 func _input(event):
 	if event.is_action_pressed("anchor_camera"):
@@ -13,4 +19,4 @@ func _input(event):
 		anchored = false
 	elif event is InputEventMouseMotion and anchored:
 		var motion_event : InputEventMouseMotion = event
-		offset -= motion_event.relative
+		global_position -= motion_event.relative

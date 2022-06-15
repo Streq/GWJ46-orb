@@ -53,6 +53,7 @@ been_hit = true
 position = Vector2( 699, 298 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
+position = Vector2( 522, 298 )
 
 [node name="fall_zone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 518, 37 )
