@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -6,16 +6,13 @@
 [ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/terrain/rect_wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/terrain/fall_zone.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 513, 21 )
-scale = Vector2( 16.12, 1 )
-
-[node name="StaticBody2D2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 522, 586 )
 scale = Vector2( 16.12, 1 )
 
 [node name="StaticBody2D3" parent="." instance=ExtResource( 5 )]
@@ -25,6 +22,11 @@ scale = Vector2( 16.12, 1 )
 
 [node name="StaticBody2D4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1010, 330 )
+rotation = 1.57079
+scale = Vector2( 16.12, 1 )
+
+[node name="StaticBody2D5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 519, 676 )
 rotation = 1.57079
 scale = Vector2( 16.12, 1 )
 
@@ -38,3 +40,6 @@ position = Vector2( 241, 300 )
 position = Vector2( 826, 297 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
+
+[node name="fall_zone" parent="." instance=ExtResource( 7 )]
+position = Vector2( 520, 594 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/terrain/rect_wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/terrain/fall_zone.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
@@ -28,13 +29,40 @@ position = Vector2( 1010, 330 )
 rotation = 1.57079
 scale = Vector2( 16.12, 1 )
 
+[node name="StaticBody2D5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 508, 144 )
+rotation = 1.57079
+scale = Vector2( 6.56775, 1.12792 )
+
 [node name="poolstick_controller" parent="." instance=ExtResource( 3 )]
 layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 241, 300 )
+position = Vector2( 322, 321 )
+
+[node name="orb6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 479, 444 )
+been_hit = true
+
+[node name="orb7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 491, 461 )
+been_hit = true
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 826, 297 )
+position = Vector2( 699, 298 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
+
+[node name="fall_zone" parent="." instance=ExtResource( 7 )]
+position = Vector2( 518, 37 )
+
+[node name="fall_zone3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 83, 228 )
+rotation = -1.57079
+
+[node name="fall_zone4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 953, 283 )
+rotation = -1.57079
+
+[node name="fall_zone2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 518, 569 )

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/global/pause.gd" type="Script" id=1]
+[ext_resource path="res://src/menu/scene_change.gd" type="Script" id=2]
+[ext_resource path="res://src/menu/menu.tscn" type="PackedScene" id=3]
 
 [node name="pause" type="CanvasLayer"]
 pause_mode = 2
@@ -8,7 +10,6 @@ layer = 11
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.196078 )
@@ -24,3 +25,19 @@ margin_right = 20.0
 margin_bottom = 7.0
 text = "pause"
 align = 1
+
+[node name="Button" type="Button" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -42.0
+margin_top = 38.0
+margin_right = 43.0
+margin_bottom = 58.0
+text = "go to menu"
+script = ExtResource( 2 )
+scene = ExtResource( 3 )
+
+[connection signal="pressed" from="ColorRect/Button" to="." method="unpause"]
+[connection signal="pressed" from="ColorRect/Button" to="ColorRect/Button" method="trigger"]

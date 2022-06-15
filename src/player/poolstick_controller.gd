@@ -56,6 +56,8 @@ func _physics_process(delta):
 			point_of_release = poolstick.global_position
 			if Input.is_action_just_released("selected"):
 				_change_state(SHOOTING)
+			elif Input.is_action_just_pressed("anchor_camera"):
+				_change_state(IDLE)
 		SHOOTING:
 			pass
 	update()
@@ -84,7 +86,7 @@ func _change_state(new_state:int):
 			tween.start()
 			yield(tween, "tween_all_completed")
 			var impulse = get_power()*impulse_multiplier
-			if selected.sleeping:
+			if selected.sleeping or selected.linear_velocity.is_equal_approx(Vector2()):
 				selected.apply_impulse(selected.to_local(point_of_impulse), (point_of_impulse-point_of_release).normalized()*impulse)
 				selected.been_hit = true
 				yield(get_tree().create_timer(0.3),"timeout")

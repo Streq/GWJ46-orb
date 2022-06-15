@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/terrain/rect_wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/terrain/moving_wall0.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
@@ -28,13 +29,31 @@ position = Vector2( 1010, 330 )
 rotation = 1.57079
 scale = Vector2( 16.12, 1 )
 
+[node name="Node2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 276, 618 )
+seek = 2.0
+
+[node name="Node2D2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 439, 0 )
+rotation = -9.42476
+seek = 1.75
+
+[node name="Node2D3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 595, 618 )
+seek = 1.5
+
+[node name="Node2D4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 741, 0 )
+rotation = 3.14159
+seek = 1.25
+
 [node name="poolstick_controller" parent="." instance=ExtResource( 3 )]
 layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 241, 300 )
+position = Vector2( 146, 299 )
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 826, 297 )
+position = Vector2( 914, 292 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]

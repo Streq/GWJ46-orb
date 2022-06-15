@@ -83,6 +83,7 @@ config/icon="res://assets/texture/icon.png"
 Group="*res://src/global/group.gd"
 Levels="*res://src/global/levels.tscn"
 Pause="*res://src/global/pause.tscn"
+Retry="*res://src/global/retry.tscn"
 
 [importer_defaults]
 

@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var been_hit = false setget set_been_hit
+export var been_hit = false setget set_been_hit
 
 
 func set_been_hit(val):

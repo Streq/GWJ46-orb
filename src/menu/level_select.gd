@@ -10,7 +10,7 @@ func _ready():
 		var level = levels[index]
 		var button : Button = LEVEL_BUTTON.instance()
 		var scene = level.scene
-		button.text = str(index)
+		button.text = str(index+1)
 		button.connect("pressed", self, "_goto_level", [index])
 		container.add_child(button)
 		

@@ -10,7 +10,7 @@
 [ext_resource path="res://src/terrain/fall_zone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=9]
 
-[node name="Node2D2" type="Node2D"]
+[node name="Node2D2" type="Node2D" groups=["level"]]
 script = ExtResource( 4 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 1 )]
@@ -55,8 +55,8 @@ scale = Vector2( 3.91138, -11.7588 )
 position = Vector2( 939, 300 )
 scale = Vector2( 4.33573, -16.8169 )
 
-[node name="attraction_orb" parent="." instance=ExtResource( 6 )]
-position = Vector2( 385, 437 )
+[node name="attraction_orb3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 355, 389 )
 
 [node name="goal_zone" parent="." instance=ExtResource( 5 )]
 position = Vector2( 283, 540 )
@@ -68,3 +68,4 @@ rotation = 1.57079
 scale = Vector2( 7.72019, 1.47325 )
 
 [node name="camera" parent="." instance=ExtResource( 9 )]
+current = false
