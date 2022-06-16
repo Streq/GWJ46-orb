@@ -5,7 +5,6 @@
 
 [sub_resource type="PhysicsMaterial" id=2]
 bounce = 1.0
-absorbent = true
 
 [node name="attraction_orb" instance=ExtResource( 4 )]
 collision_layer = 11

@@ -11,3 +11,4 @@ func _process(delta):
 		lifetime = 0.3*_scale
 		
 		global_position = orb.global_position
+		global_rotation = 0
