@@ -94,7 +94,6 @@ tracks/3/keys = {
 position = Vector2( 311, 232 )
 collision_layer = 3
 collision_mask = 5
-mode = 2
 physics_material_override = SubResource( 3 )
 linear_damp = 0.4
 script = ExtResource( 2 )
