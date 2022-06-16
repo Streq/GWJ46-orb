@@ -5,6 +5,7 @@
 [ext_resource path="res://src/effects/attraction_area.tscn" type="PackedScene" id=3]
 
 [node name="orb" groups=["can_win_with"] instance=ExtResource( 1 )]
+z_index = 1
 collision_mask = 13
 
 [node name="repulsion_area" parent="." index="2" instance=ExtResource( 2 )]

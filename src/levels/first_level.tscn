@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
+[ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/player/poolstick_controller.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/terrain/poly_wall.tscn" type="PackedScene" id=7]
+
+[node name="Node2D3" type="Node2D" groups=["level"]]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0470588, 0.654902, 0.537255, 1 )
+
+[node name="poolstick_controller" parent="." instance=ExtResource( 3 )]
+layers = 2
+
+[node name="orb3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 241, 300 )
+
+[node name="goal_zone" parent="." instance=ExtResource( 2 )]
+position = Vector2( 776, 296 )
+
+[node name="camera" parent="." instance=ExtResource( 6 )]
+position = Vector2( 512, 300 )
+
+[node name="poly_wall" parent="." instance=ExtResource( 7 )]
+modulate = Color( 0.0980392, 0.423529, 0.352941, 1 )
+position = Vector2( 457, 291 )
+
+[node name="Polygon2D" parent="poly_wall" index="1"]
+polygon = PoolVector2Array( 439, -11, 567, -291, -457, -291, -457, 309, 567, 309, 439, 5, 407, 93, -329, 93, -329, -99, 407, -99 )
+
+[node name="poly_wall2" parent="." instance=ExtResource( 7 )]
+modulate = Color( 0.0980392, 0.423529, 0.352941, 1 )
+position = Vector2( 457, 291 )
+
+[node name="Polygon2D" parent="poly_wall2" index="1"]
+polygon = PoolVector2Array( 439, -3, 567, -291, 567, 309 )
+
+[editable path="poly_wall"]
+[editable path="poly_wall2"]

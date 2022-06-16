@@ -2,12 +2,12 @@
 
 [ext_resource path="res://src/global/levels.gd" type="Script" id=1]
 [ext_resource path="res://src/global/level.gd" type="Script" id=2]
-[ext_resource path="res://src/levels/level_0.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/levels/first_level.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/menu/level_select.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/levels/level_6.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/levels/level_2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/levels/level_4.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/levels/level_1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/levels/bounce_off_wall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/levels/moving_obstacles.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/levels/rotating_obstacle.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/levels/level_8.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/levels/level_7.tscn" type="PackedScene" id=10]
 
