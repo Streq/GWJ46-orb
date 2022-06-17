@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/global/levels.gd" type="Script" id=1]
 [ext_resource path="res://src/global/level.gd" type="Script" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://src/levels/push.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/levels/spinning_floor.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/levels/disappearing_floor.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/levels/moving_goal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/levels/mixup1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/levels/time_the_shot.tscn" type="PackedScene" id=15]
 
 [node name="Levels" type="Node"]
 script = ExtResource( 1 )
@@ -33,6 +36,10 @@ scene = ExtResource( 8 )
 script = ExtResource( 2 )
 scene = ExtResource( 7 )
 
+[node name="moving_goal" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 13 )
+
 [node name="spinning_floor" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 11 )
@@ -48,6 +55,14 @@ scene = ExtResource( 5 )
 [node name="push" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 10 )
+
+[node name="time_the_shot" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 15 )
+
+[node name="mixup1" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 14 )
 
 [node name="push_and_pull" type="Node" parent="."]
 script = ExtResource( 2 )

@@ -24,7 +24,8 @@ func _physics_process(delta):
 					body.sink()
 					_remove_skip(body)
 					body.add_child(splash)
-			_add_skip(body)
+			else:
+				_add_skip(body)
 			
 
 

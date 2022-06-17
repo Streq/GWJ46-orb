@@ -11,7 +11,7 @@
 [ext_resource path="res://src/terrain/auto_polygon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/terrain/disappearing_anim.tscn" type="PackedScene" id=10]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=12]
 resource_name = "disappear"
 loop = true
 step = 0.05
@@ -292,8 +292,8 @@ z_index = 1
 polygon = PoolVector2Array( -256, -93, -256, -5, -256, 83, 256, 83, 256, -5, 256, -93, 0, -93 )
 
 [node name="AnimationPlayer" parent="floor/auto_polygon" instance=ExtResource( 10 )]
-anims/RESET = SubResource( 1 )
-anims/disappear = SubResource( 2 )
+anims/RESET = SubResource( 11 )
+anims/disappear = SubResource( 12 )
 seek_time = 0.0
 
 [node name="auto_polygon2" parent="floor" instance=ExtResource( 9 )]

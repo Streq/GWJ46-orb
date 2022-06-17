@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/test/fall_zone.gd" type="Script" id=1]
+[ext_resource path="res://src/terrain/skip_particles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/terrain/splash_particles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/terrain/auto_polygon.tscn" type="PackedScene" id=4]
+
+[node name="water_zone" type="Area2D"]
+z_index = -1
+collision_layer = 32
+collision_mask = 0
+priority = 5.0
+gravity_point = true
+gravity_vec = Vector2( 0, 0 )
+gravity = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
+script = ExtResource( 1 )
+SKIP_PARTICLES = ExtResource( 2 )
+SPLASH_PARTICLES = ExtResource( 3 )
+
+[node name="auto_polygon" parent="." instance=ExtResource( 4 )]
+color = Color( 0.0705882, 0.803922, 0.831373, 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_water_zone_area_entered" flags=3]
+[connection signal="area_exited" from="." to="." method="_on_water_zone_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_water_zone_body_entered" flags=3]
+[connection signal="body_exited" from="." to="." method="_on_water_zone_body_exited"]

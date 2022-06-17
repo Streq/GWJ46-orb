@@ -68,7 +68,6 @@ layers = 2
 
 [node name="floor" parent="." instance=ExtResource( 8 )]
 position = Vector2( 512, 309 )
-z_index = 1
 
 [node name="auto_polygon" parent="floor" instance=ExtResource( 9 )]
 modulate = Color( 0.490196, 0.431373, 0.356863, 1 )

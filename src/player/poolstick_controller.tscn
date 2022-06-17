@@ -4,6 +4,7 @@
 [ext_resource path="res://assets/texture/poolstick.png" type="Texture" id=2]
 
 [node name="poolstick_controller" type="Node2D" groups=["poolstick"]]
+z_index = 4096
 script = ExtResource( 1 )
 max_dist = 128.0
 

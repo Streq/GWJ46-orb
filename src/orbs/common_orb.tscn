@@ -16,3 +16,6 @@ collision_mask = 4
 visible = false
 collision_layer = 0
 collision_mask = 8
+
+[connection signal="sinking" from="." to="repulsion_area" method="queue_free"]
+[connection signal="sinking" from="." to="attraction_area" method="queue_free"]
