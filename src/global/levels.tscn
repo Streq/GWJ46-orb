@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/global/levels.gd" type="Script" id=1]
 [ext_resource path="res://src/global/level.gd" type="Script" id=2]
@@ -10,35 +10,45 @@
 [ext_resource path="res://src/levels/rotating_obstacle.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/levels/push_and_pull.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/levels/push.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/levels/spinning_floor.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/levels/disappearing_floor.tscn" type="PackedScene" id=12]
 
 [node name="Levels" type="Node"]
 script = ExtResource( 1 )
 level_menu = ExtResource( 4 )
 
-[node name="0" type="Node" parent="."]
+[node name="first_level" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 3 )
 
-[node name="1" type="Node" parent="."]
+[node name="bounce" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 6 )
 
-[node name="2" type="Node" parent="."]
+[node name="rotating_obstacle" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 8 )
 
-[node name="4" type="Node" parent="."]
+[node name="moving_obstacles" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 7 )
 
-[node name="5" type="Node" parent="."]
+[node name="spinning_floor" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 11 )
+
+[node name="disappearing_floor" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 12 )
+
+[node name="pull" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 5 )
 
-[node name="6" type="Node" parent="."]
+[node name="push" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 10 )
 
-[node name="7" type="Node" parent="."]
+[node name="push_and_pull" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 9 )

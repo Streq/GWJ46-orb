@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -7,6 +7,40 @@
 [ext_resource path="res://src/terrain/rect_wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/terrain/water_zone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/terrain/floor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/terrain/auto_polygon.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "rotate"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
 
 [node name="Node2D3" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
@@ -32,8 +66,41 @@ scale = Vector2( 16.12, 1 )
 [node name="poolstick_controller" parent="." instance=ExtResource( 3 )]
 layers = 2
 
+[node name="floor" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, 309 )
+z_index = 1
+
+[node name="auto_polygon" parent="floor" instance=ExtResource( 9 )]
+modulate = Color( 0.490196, 0.431373, 0.356863, 1 )
+z_index = 1
+polygon = PoolVector2Array( -256, -93, -256, -5, -256, 83, 256, 83, 256, -5, 256, -93, 0, -93 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="floor"]
+autoplay = "rotate"
+playback_speed = 0.5
+anims/RESET = SubResource( 1 )
+anims/rotate = SubResource( 2 )
+
 [node name="orb3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 146, 299 )
+
+[node name="orb4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 384, 288 )
+
+[node name="orb5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 384, 312 )
+
+[node name="orb6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 405, 288 )
+
+[node name="orb7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 405, 308 )
+
+[node name="orb8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 394, 330 )
+
+[node name="orb9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 394, 271 )
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 914, 292 )

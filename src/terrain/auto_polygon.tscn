@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/terrain/auto_polygon.gd" type="Script" id=1]
+
+[node name="auto_polygon" type="Polygon2D"]
+script = ExtResource( 1 )

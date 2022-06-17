@@ -13,7 +13,7 @@ func _physics_process(delta):
 			
 		if currently_in_a_level:
 			for orb in Group.get_all("orb"):
-				if orb.mode == RigidBody2D.MODE_RIGID and (!orb.sleeping or !orb.been_hit):
+				if orb.mode == RigidBody2D.MODE_RIGID and (!orb.sleeping or !orb.been_hit) and !orb.sinking:
 					all_asleep = false
 					break
 		

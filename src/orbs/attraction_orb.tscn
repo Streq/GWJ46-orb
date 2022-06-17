@@ -12,8 +12,9 @@ absorbent = true
 collision_layer = 11
 physics_material_override = SubResource( 2 )
 
-[node name="Sprite" parent="modulate" index="0"]
+[node name="attraction_area" parent="." index="3" instance=ExtResource( 2 )]
+
+[node name="modulate" parent="." index="4"]
 modulate = Color( 0, 1, 1, 1 )
 
-[node name="attraction_area" parent="." index="3" instance=ExtResource( 2 )]
-modulate = Color( 0, 1, 1, 0.196078 )
+[connection signal="sinking" from="." to="attraction_area" method="queue_free"]
