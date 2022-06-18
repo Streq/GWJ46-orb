@@ -1,8 +1,13 @@
+tool
 extends Polygon2D
+
+export (Colors.NAMES) var palette := Colors.NAMES.BACKGROUND
 
 var col : CollisionPolygon2D = null
 
 var active := true setget set_active
+
+
 func set_active(val):
 	active = val
 	visible = active
@@ -14,10 +19,15 @@ func disappear():
 func appear():
 	set_active(true)
 
+func _process(delta):
+	if Engine.editor_hint:
+		color = Colors.get_color(palette)
 func _ready():
-	var par = get_parent()
-	yield(par, "ready")
-	col = CollisionPolygon2D.new()
-	par.add_child(col)
-	col.polygon = polygon
-	col.transform = transform
+	if !Engine.editor_hint:
+		color = Colors.get_color(palette)
+		var par = get_parent()
+		yield(par, "ready")
+		col = CollisionPolygon2D.new()
+		par.add_child(col)
+		col.polygon = polygon
+		col.transform = transform

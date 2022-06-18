@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/terrain/rect_wall.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/orbs/slot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/orbs/repulsion_orb.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=10]
 
 [node name="Node2D4" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
@@ -63,3 +64,5 @@ position = Vector2( 513, 300 )
 
 [node name="repulsion_orb" parent="." instance=ExtResource( 9 )]
 position = Vector2( 211, 192 )
+
+[node name="background" parent="." instance=ExtResource( 10 )]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/terrain/poly_wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=7]
 
 [node name="Node2D3" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
@@ -23,17 +24,12 @@ position = Vector2( 826, 297 )
 position = Vector2( 512, 300 )
 
 [node name="poly_wall" parent="." instance=ExtResource( 5 )]
-modulate = Color( 0.0980392, 0.423529, 0.352941, 1 )
 
-[node name="Polygon2D" parent="poly_wall" index="1"]
+[node name="Polygon2D" parent="poly_wall" index="0"]
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( 0, 0, 0, 600, 1024, 600, 1024, 0, 0, 0, 64, 64, 800, 64, 904, 168, 904, 360, 656, 512, 520, 176, 384, 512, 64, 512, 64, 64 )
+palette = 3
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.0470588, 0.654902, 0.537255, 1 )
+[node name="background" parent="." instance=ExtResource( 7 )]
 
 [editable path="poly_wall"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -6,10 +6,11 @@
 [ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/terrain/rect_wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/terrain/water_zone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/terrain/water_poly.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/terrain/floor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/terrain/auto_polygon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/terrain/disappearing_anim.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=11]
 length = 0.001
@@ -282,10 +283,8 @@ layers = 2
 
 [node name="floor" parent="." instance=ExtResource( 8 )]
 position = Vector2( 512, 309 )
-z_index = -1
 
 [node name="auto_polygon" parent="floor" instance=ExtResource( 9 )]
-modulate = Color( 0.490196, 0.431373, 0.356863, 1 )
 position = Vector2( 176, -5.00001 )
 scale = Vector2( 0.1875, 1 )
 z_index = 1
@@ -297,7 +296,6 @@ anims/disappear = SubResource( 12 )
 seek_time = 0.0
 
 [node name="auto_polygon2" parent="floor" instance=ExtResource( 9 )]
-modulate = Color( 0.490196, 0.431373, 0.356863, 1 )
 position = Vector2( 80, -5.00001 )
 scale = Vector2( 0.1875, 1 )
 z_index = 1
@@ -309,7 +307,6 @@ anims/disappear = SubResource( 4 )
 seek_time = 0.2
 
 [node name="auto_polygon3" parent="floor" instance=ExtResource( 9 )]
-modulate = Color( 0.490196, 0.431373, 0.356863, 1 )
 position = Vector2( -16, -5.00001 )
 scale = Vector2( 0.1875, 1 )
 z_index = 1
@@ -321,7 +318,6 @@ anims/disappear = SubResource( 6 )
 seek_time = 0.4
 
 [node name="auto_polygon4" parent="floor" instance=ExtResource( 9 )]
-modulate = Color( 0.490196, 0.431373, 0.356863, 1 )
 position = Vector2( -112, -5.00001 )
 scale = Vector2( 0.1875, 1 )
 z_index = 1
@@ -333,7 +329,6 @@ anims/disappear = SubResource( 8 )
 seek_time = 0.6
 
 [node name="auto_polygon5" parent="floor" instance=ExtResource( 9 )]
-modulate = Color( 0.490196, 0.431373, 0.356863, 1 )
 position = Vector2( -208, -5 )
 scale = Vector2( 0.1875, 1 )
 z_index = 1
@@ -353,6 +348,14 @@ position = Vector2( 914, 292 )
 [node name="camera" parent="." instance=ExtResource( 6 )]
 position = Vector2( 513, 299 )
 
-[node name="water_zone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 496, 336 )
-scale = Vector2( 23.3036, 30.3516 )
+[node name="background" parent="." instance=ExtResource( 11 )]
+
+[node name="water_zone2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1010, 330 )
+rotation = 1.57079
+scale = Vector2( 16.12, 1 )
+
+[node name="auto_polygon" parent="water_zone2" index="0"]
+polygon = PoolVector2Array( 19.2305, 746.002, -17.4941, 745.998, -17.4939, 281.998, 19.2307, 282.002 )
+
+[editable path="water_zone2"]

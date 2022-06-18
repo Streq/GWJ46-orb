@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/terrain/water_zone.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/terrain/floor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/terrain/auto_polygon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -110,3 +111,5 @@ position = Vector2( 513, 299 )
 [node name="water_zone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 512, 332 )
 scale = Vector2( 25.0236, 30.3516 )
+
+[node name="background" parent="." instance=ExtResource( 10 )]

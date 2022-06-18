@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://src/player/poolstick_controller.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/terrain/rect_wall.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/terrain/water_zone.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/terrain/water_poly.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
@@ -54,16 +55,12 @@ position = Vector2( 699, 298 )
 [node name="camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 513, 298 )
 
-[node name="fall_zone" parent="." instance=ExtResource( 7 )]
-position = Vector2( 518, 37 )
+[node name="background" parent="." instance=ExtResource( 8 )]
+palette = 3
 
-[node name="fall_zone3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 83, 228 )
-rotation = -1.57079
+[node name="water_zone" parent="." instance=ExtResource( 7 )]
 
-[node name="fall_zone4" parent="." instance=ExtResource( 7 )]
-position = Vector2( 953, 283 )
-rotation = -1.57079
+[node name="auto_polygon" parent="water_zone" index="0"]
+polygon = PoolVector2Array( 48, 48, 48, 560, 984, 560, 984, 40, 896, 40, 896, 496, 128, 496, 128, 48 )
 
-[node name="fall_zone2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 518, 569 )
+[editable path="water_zone"]

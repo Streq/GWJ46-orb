@@ -20,7 +20,8 @@ SKIP_PARTICLES = ExtResource( 2 )
 SPLASH_PARTICLES = ExtResource( 3 )
 
 [node name="auto_polygon" parent="." instance=ExtResource( 4 )]
-color = Color( 0.0705882, 0.803922, 0.831373, 1 )
+color = Color( 0.466667, 0.784314, 0.831373, 1 )
+palette = 4
 
 [connection signal="area_entered" from="." to="." method="_on_water_zone_area_entered" flags=3]
 [connection signal="area_exited" from="." to="." method="_on_water_zone_area_exited"]
