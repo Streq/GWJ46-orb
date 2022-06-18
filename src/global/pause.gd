@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var curtain = $ColorRect
+onready var pivot = $pivot
 
 func _ready():
 	set_pause(get_tree().paused)
@@ -13,7 +13,7 @@ func _input(event):
 func set_pause(val):
 	var paused = val
 	get_tree().paused = paused
-	curtain.visible = paused
+	pivot.visible = paused
 
 func pause():
 	set_pause(true)

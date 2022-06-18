@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bola_se_quema.ogg-a65418d7c6e371c5d338ad260eab1b7d.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Bola_se_quema.ogg"
+dest_files=[ "res://.import/Bola_se_quema.ogg-a65418d7c6e371c5d338ad260eab1b7d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

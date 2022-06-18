@@ -1,43 +1,86 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/global/pause.gd" type="Script" id=1]
 [ext_resource path="res://src/menu/scene_change.gd" type="Script" id=2]
 [ext_resource path="res://src/menu/menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/menu/menu_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/menu/submenu_label.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/util/prop_to_palette_parent.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/util/circle_polygon.gd" type="Script" id=7]
+[ext_resource path="res://src/menu/pause_button_theme.tres" type="Theme" id=8]
 
 [node name="pause" type="CanvasLayer"]
 pause_mode = 2
 layer = 11
 script = ExtResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="pivot" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="pivot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.196078 )
 
-[node name="Label" type="Label" parent="ColorRect"]
+[node name="Control" type="Control" parent="pivot"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.0
-margin_right = 20.0
-margin_bottom = 7.0
-text = "pause"
-align = 1
+margin_top = -43.0
+margin_bottom = -43.0
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="Polygon2D" type="Polygon2D" parent="pivot/Control"]
+modulate = Color( 0.188235, 0.156863, 0.215686, 1 )
+polygon = PoolVector2Array( -5.59506e-06, 128, -6.28067, 127.846, -12.5462, 127.384, -18.7815, 126.615, -24.9716, 125.541, -31.1015, 124.164, -37.1564, 122.488, -43.1219, 120.518, -48.9835, 118.257, -54.7271, 115.711, -60.3388, 112.886, -65.8052, 109.789, -71.113, 106.428, -76.2495, 102.811, -81.2023, 98.9453, -85.9596, 94.8417, -90.5097, 90.5097, -94.8418, 85.9595, -98.9453, 81.2023, -102.811, 76.2495, -106.428, 71.113, -109.789, 65.8052, -112.886, 60.3388, -115.711, 54.727, -118.257, 48.9835, -120.518, 43.1219, -122.488, 37.1564, -124.164, 31.1014, -125.541, 24.9716, -126.615, 18.7815, -127.384, 12.5462, -127.846, 6.28064, -128, -1.11901e-05, -127.846, -6.28066, -127.384, -12.5462, -126.615, -18.7815, -125.541, -24.9716, -124.164, -31.1015, -122.488, -37.1565, -120.518, -43.1219, -118.257, -48.9835, -115.711, -54.7271, -112.886, -60.3388, -109.789, -65.8051, -106.428, -71.113, -102.811, -76.2495, -98.9454, -81.2023, -94.8417, -85.9595, -90.5097, -90.5097, -85.9596, -94.8417, -81.2023, -98.9453, -76.2495, -102.811, -71.113, -106.428, -65.8052, -109.789, -60.3388, -112.886, -54.727, -115.711, -48.9835, -118.257, -43.1219, -120.518, -37.1564, -122.488, -31.1014, -124.164, -24.9716, -125.541, -18.7815, -126.615, -12.5462, -127.384, -6.28068, -127.846, 1.52638e-06, -128, 6.28068, -127.846, 12.5462, -127.384, 18.7815, -126.615, 24.9716, -125.541, 31.1015, -124.164, 37.1564, -122.488, 43.1219, -120.518, 48.9835, -118.257, 54.727, -115.711, 60.3388, -112.886, 65.8052, -109.789, 71.113, -106.428, 76.2495, -102.811, 81.2023, -98.9453, 85.9596, -94.8417, 90.5097, -90.5097, 94.8417, -85.9595, 98.9454, -81.2023, 102.811, -76.2495, 106.428, -71.113, 109.789, -65.8051, 112.886, -60.3388, 115.711, -54.727, 118.257, -48.9835, 120.518, -43.1219, 122.488, -37.1564, 124.164, -31.1015, 125.541, -24.9715, 126.615, -18.7815, 127.384, -12.5461, 127.846, -6.28066, 128, 2.23802e-05, 127.846, 6.2807, 127.384, 12.5462, 126.615, 18.7815, 125.541, 24.9716, 124.164, 31.1015, 122.488, 37.1564, 120.518, 43.1219, 118.257, 48.9835, 115.711, 54.7271, 112.886, 60.3388, 109.789, 65.8052, 106.428, 71.113, 102.811, 76.2495, 98.9453, 81.2024, 94.8417, 85.9596, 90.5097, 90.5097, 85.9595, 94.8418, 81.2023, 98.9454, 76.2495, 102.811, 71.113, 106.428, 65.8051, 109.789, 60.3387, 112.886, 54.727, 115.711, 48.9835, 118.257, 43.1219, 120.518, 37.1564, 122.488, 31.1014, 124.164, 24.9715, 125.541, 18.7815, 126.615, 12.5462, 127.384, 6.28064, 127.846 )
+
+[node name="prop_to_palette_parent" parent="pivot/Control/Polygon2D" instance=ExtResource( 6 )]
+
+[node name="circle_polygon" type="Node" parent="pivot/Control/Polygon2D"]
+script = ExtResource( 7 )
+radius = 128.0
+sides = 128
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pivot"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -42.0
-margin_top = 38.0
-margin_right = 43.0
-margin_bottom = 58.0
-text = "go to menu"
+margin_left = -128.0
+margin_top = -34.0
+margin_right = 128.0
+margin_bottom = 34.0
+
+[node name="back_to_menu" parent="pivot/VBoxContainer" instance=ExtResource( 4 )]
+margin_right = 256.0
+margin_bottom = 32.0
+
+[node name="button" parent="pivot/VBoxContainer/back_to_menu/pivot" index="0"]
+theme = ExtResource( 8 )
+text = "BACK TO MENU"
+
+[node name="scene_change" type="Node" parent="pivot/VBoxContainer/back_to_menu"]
 script = ExtResource( 2 )
 scene = ExtResource( 3 )
 
-[connection signal="pressed" from="ColorRect/Button" to="." method="unpause"]
-[connection signal="pressed" from="ColorRect/Button" to="ColorRect/Button" method="trigger"]
+[node name="resume" parent="pivot/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 36.0
+margin_right = 256.0
+margin_bottom = 68.0
+
+[node name="button" parent="pivot/VBoxContainer/resume/pivot" index="0"]
+theme = ExtResource( 8 )
+text = "RESUME"
+
+[node name="Label" parent="pivot" instance=ExtResource( 5 )]
+margin_top = -118.0
+margin_bottom = -85.0
+text = "PAUSE"
+
+[connection signal="pressed" from="pivot/VBoxContainer/back_to_menu/pivot/button" to="." method="unpause"]
+[connection signal="pressed" from="pivot/VBoxContainer/back_to_menu/pivot/button" to="pivot/VBoxContainer/back_to_menu/scene_change" method="trigger"]
+[connection signal="pressed" from="pivot/VBoxContainer/resume/pivot/button" to="." method="unpause"]
+
+[editable path="pivot/VBoxContainer/back_to_menu"]
+[editable path="pivot/VBoxContainer/resume"]

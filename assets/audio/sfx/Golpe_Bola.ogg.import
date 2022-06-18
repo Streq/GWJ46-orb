@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Golpe_Bola.ogg-b33205e26d3b39c6eb43886eed01b35c.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Golpe_Bola.ogg"
+dest_files=[ "res://.import/Golpe_Bola.ogg-b33205e26d3b39c6eb43886eed01b35c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

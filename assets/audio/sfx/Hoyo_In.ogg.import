@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Hoyo_In.ogg-ad07aaf085af7c7ba25de2ff3a041f8b.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Hoyo_In.ogg"
+dest_files=[ "res://.import/Hoyo_In.ogg-ad07aaf085af7c7ba25de2ff3a041f8b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

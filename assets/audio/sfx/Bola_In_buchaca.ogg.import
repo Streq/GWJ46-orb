@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bola_In_buchaca.ogg-13155e9863eb146581d82ae4674265bb.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Bola_In_buchaca.ogg"
+dest_files=[ "res://.import/Bola_In_buchaca.ogg-13155e9863eb146581d82ae4674265bb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

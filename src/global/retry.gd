@@ -2,7 +2,22 @@ extends CanvasLayer
 
 onready var pivot = $pivot
 onready var wait = $wait
+onready var retry = $pivot/retry
+onready var pause = $pivot/pause
+onready var shine = $pivot/retry/shine/shine_anim
 
+func _ready():
+	get_tree().connect("tree_changed", self, "_on_tree_changed")
+
+
+
+func _on_tree_changed():
+	var tree = get_tree()
+	if is_instance_valid(tree):
+		var current_scene = tree.current_scene
+		if is_instance_valid(current_scene):
+			var currently_in_a_level = current_scene.is_in_group("level")
+			pivot.visible = currently_in_a_level
 
 
 func _physics_process(delta):
@@ -23,9 +38,21 @@ func _physics_process(delta):
 				wait.start()
 		else:
 			wait.stop()
-			pivot.visible = false
+			defocus_retry()
 		
 		
+func focus_retry():
+	shine.play("shine")
+
+func defocus_retry():
+	shine.play("off")
 
 func _on_wait_timeout():
-	pivot.visible = true
+	focus_retry()
+
+func _on_pause_pressed():
+	Pause.pause()
+
+
+func _on_retry_pressed():
+	Levels.reload_current_level()

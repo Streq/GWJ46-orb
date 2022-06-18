@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bola_Pasa_Por_Agua.ogg-29b98b61283f8f821ffe810bd8ed0427.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Bola_Pasa_Por_Agua.ogg"
+dest_files=[ "res://.import/Bola_Pasa_Por_Agua.ogg-29b98b61283f8f821ffe810bd8ed0427.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
