@@ -92,6 +92,7 @@ text = "R"
 [node name="shine" type="ColorRect" parent="pivot/retry"]
 margin_right = 64.0
 margin_bottom = 64.0
+mouse_filter = 2
 color = Color( 0.592157, 0.580392, 0.301961, 0.176471 )
 
 [node name="shine_anim" type="AnimationPlayer" parent="pivot/retry/shine"]
