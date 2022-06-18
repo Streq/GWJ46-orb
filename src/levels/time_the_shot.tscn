@@ -27,8 +27,9 @@ scale = Vector2( 2.80851, 2.44 )
 scale = Vector2( 0.356061, 0.409836 )
 
 [node name="Polygon2D" parent="goal_zone/poly_wall2" index="0"]
-color = Color( 0.188235, 0.156863, 0.215686, 1 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( -88, -72, -64, -72, -64, 72, 64, 72, 64, -72, 88, -72, 88, 96, -88, 96 )
+palette = 3
 
 [node name="AnimationPlayer" parent="goal_zone/poly_wall2" instance=ExtResource( 8 )]
 
@@ -39,8 +40,9 @@ current = false
 [node name="poly_wall" parent="." instance=ExtResource( 6 )]
 
 [node name="Polygon2D" parent="poly_wall" index="0"]
-color = Color( 0.188235, 0.156863, 0.215686, 1 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( 32, 384, 0, 384, 0, 600, 1024, 600, 1024, 0, 992, 0, 992, 264, 936, 264, 936, 408, 832, 512, 704, 512, 704, 568, 32, 568 )
+palette = 3
 
 [node name="water_zone" parent="." instance=ExtResource( 7 )]
 position = Vector2( 376, 192 )

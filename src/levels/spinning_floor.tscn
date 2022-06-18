@@ -71,7 +71,6 @@ layers = 2
 position = Vector2( 512, 309 )
 
 [node name="auto_polygon" parent="floor" instance=ExtResource( 9 )]
-modulate = Color( 0.490196, 0.431373, 0.356863, 1 )
 z_index = 1
 polygon = PoolVector2Array( -256, -93, -256, -5, -256, 83, 256, 83, 256, -5, 256, -93, 0, -93 )
 

@@ -59,8 +59,9 @@ position = Vector2( 512, 300 )
 position = Vector2( 457, 291 )
 
 [node name="Polygon2D" parent="poly_wall" index="0"]
-color = Color( 0.188235, 0.156863, 0.215686, 1 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( 47, -323, 191, -123, 327, -323 )
+palette = 3
 
 [node name="floor" parent="." instance=ExtResource( 9 )]
 position = Vector2( 736, 368 )
@@ -72,8 +73,9 @@ polygon = PoolVector2Array( -64, 96, -64, -64, 288, -64, 136, 96 )
 position = Vector2( 0, 32 )
 
 [node name="Polygon2D" parent="floor/poly_wall" index="0"]
-color = Color( 0.188235, 0.156863, 0.215686, 1 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( 80, 64, 80, 96, -88, 96, -88, -96, 80, -96, 80, -64, -56, -64, -56, 64 )
+palette = 3
 
 [node name="goal_zone" parent="floor" instance=ExtResource( 2 )]
 position = Vector2( 0, 32 )

@@ -95,22 +95,25 @@ position = Vector2( 128, 352 )
 [node name="poly_wall" parent="." instance=ExtResource( 7 )]
 
 [node name="Polygon2D" parent="poly_wall" index="0"]
-color = Color( 0.188235, 0.156863, 0.215686, 1 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( 960, 0, 1000, 16, 1000, 344, 1000, 376, 960, 392, 960, 320 )
+palette = 3
 
 [node name="poly_wall3" parent="." instance=ExtResource( 7 )]
 
 [node name="Polygon2D" parent="poly_wall3" index="0"]
-color = Color( 0.188235, 0.156863, 0.215686, 1 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( 672, -72, 672, -88, 1000, -56, 1000, 24 )
+palette = 3
 
 [node name="poly_wall2" parent="." instance=ExtResource( 7 )]
 
 [node name="Polygon2D" parent="poly_wall2" index="0"]
 position = Vector2( 1672, 192 )
 rotation = 3.14159
-color = Color( 0.188235, 0.156863, 0.215686, 1 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( 960, 88, 1000, 112.004, 999.999, 272.004, 959.999, 264.004 )
+palette = 3
 
 [node name="background" parent="." instance=ExtResource( 10 )]
 
