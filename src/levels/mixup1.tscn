@@ -43,7 +43,7 @@ tracks/0/keys = {
 "values": [ Vector2( 320, -96 ), Vector2( 320, 120 ) ]
 }
 
-[node name="Node2D4" type="Node2D" groups=["level"]]
+[node name="Node2D5" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
 
 [node name="poolstick_controller" parent="." instance=ExtResource( 3 )]

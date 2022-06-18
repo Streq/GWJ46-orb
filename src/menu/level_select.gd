@@ -12,7 +12,8 @@ func _ready():
 		var scene = level.scene
 		button.text = str(index+1)
 		button.connect("pressed", self, "_goto_level", [index])
+		if Levels.highest_available < index:
+			button.disabled = true
 		container.add_child(button)
-		
 func _goto_level(index):
 	Levels.goto_level(index)
