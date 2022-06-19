@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/global/pause.gd" type="Script" id=1]
 [ext_resource path="res://src/menu/scene_change.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://src/util/prop_to_palette_parent.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/util/circle_polygon.gd" type="Script" id=7]
 [ext_resource path="res://src/menu/pause_button_theme.tres" type="Theme" id=8]
+[ext_resource path="res://src/menu/exit_button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/menu/level_select.tscn" type="PackedScene" id=10]
 
 [node name="pause" type="CanvasLayer"]
 pause_mode = 2
@@ -48,9 +50,10 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -128.0
-margin_top = -34.0
+margin_top = -69.0
 margin_right = 128.0
-margin_bottom = 34.0
+margin_bottom = 31.0
+alignment = 1
 
 [node name="back_to_menu" parent="pivot/VBoxContainer" instance=ExtResource( 4 )]
 margin_right = 256.0
@@ -58,20 +61,34 @@ margin_bottom = 32.0
 
 [node name="button" parent="pivot/VBoxContainer/back_to_menu/pivot" index="0"]
 theme = ExtResource( 8 )
-text = "BACK TO MENU"
+text = "MENU"
 
 [node name="scene_change" type="Node" parent="pivot/VBoxContainer/back_to_menu"]
 script = ExtResource( 2 )
 scene = ExtResource( 3 )
 
-[node name="resume" parent="pivot/VBoxContainer" instance=ExtResource( 4 )]
+[node name="choose_level" parent="pivot/VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 36.0
 margin_right = 256.0
 margin_bottom = 68.0
 
-[node name="button" parent="pivot/VBoxContainer/resume/pivot" index="0"]
+[node name="button" parent="pivot/VBoxContainer/choose_level/pivot" index="0"]
 theme = ExtResource( 8 )
-text = "RESUME"
+text = "LEVEL SELECT"
+
+[node name="scene_change" type="Node" parent="pivot/VBoxContainer/choose_level"]
+script = ExtResource( 2 )
+scene = ExtResource( 10 )
+
+[node name="Control" type="Control" parent="pivot/VBoxContainer"]
+margin_top = 72.0
+margin_right = 256.0
+margin_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 64, 64 )
+
+[node name="exit_button" parent="pivot/VBoxContainer/Control" instance=ExtResource( 9 )]
 
 [node name="Label" parent="pivot" instance=ExtResource( 5 )]
 margin_top = -118.0
@@ -80,7 +97,9 @@ text = "PAUSE"
 
 [connection signal="pressed" from="pivot/VBoxContainer/back_to_menu/pivot/button" to="." method="unpause"]
 [connection signal="pressed" from="pivot/VBoxContainer/back_to_menu/pivot/button" to="pivot/VBoxContainer/back_to_menu/scene_change" method="trigger"]
-[connection signal="pressed" from="pivot/VBoxContainer/resume/pivot/button" to="." method="unpause"]
+[connection signal="pressed" from="pivot/VBoxContainer/choose_level/pivot/button" to="." method="unpause"]
+[connection signal="pressed" from="pivot/VBoxContainer/choose_level/pivot/button" to="pivot/VBoxContainer/choose_level/scene_change" method="trigger"]
+[connection signal="pressed" from="pivot/VBoxContainer/Control/exit_button" to="." method="unpause"]
 
 [editable path="pivot/VBoxContainer/back_to_menu"]
-[editable path="pivot/VBoxContainer/resume"]
+[editable path="pivot/VBoxContainer/choose_level"]

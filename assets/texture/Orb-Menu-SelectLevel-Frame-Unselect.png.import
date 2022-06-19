@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PULF-LEVEL-SETTINGS-MOUSEOVER.png-b4b80ae9b932cb03c9ec4abb92e95bc7.stex"
+path="res://.import/Orb-Menu-SelectLevel-Frame-Unselect.png-dcf4ecbc63d8121ec34778edd30a0d9b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ORB POOL-20220618T125503Z-001/ORB POOL/ASSETS/LEVELS - UI/PULF-LEVEL-SETTINGS-MOUSEOVER.png"
-dest_files=[ "res://.import/PULF-LEVEL-SETTINGS-MOUSEOVER.png-b4b80ae9b932cb03c9ec4abb92e95bc7.stex" ]
+source_file="res://assets/texture/Orb-Menu-SelectLevel-Frame-Unselect.png"
+dest_files=[ "res://.import/Orb-Menu-SelectLevel-Frame-Unselect.png-dcf4ecbc63d8121ec34778edd30a0d9b.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Orb-Menu-SelectLevel-Frame-Unselect.png-d7e27aeae00d7ee3038584437a3ea6ad.stex"
+path="res://.import/Orb-Menu-SelectLevel-Frame-Rollover.png-8fbac34a11e72515b04e5e40b600f405.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ORB POOL-20220618T125503Z-001/ORB POOL/ASSETS/MENU - LEVEL SELECTOR/Orb-Menu-SelectLevel-Frame-Unselect.png"
-dest_files=[ "res://.import/Orb-Menu-SelectLevel-Frame-Unselect.png-d7e27aeae00d7ee3038584437a3ea6ad.stex" ]
+source_file="res://assets/texture/Orb-Menu-SelectLevel-Frame-Rollover.png"
+dest_files=[ "res://.import/Orb-Menu-SelectLevel-Frame-Rollover.png-8fbac34a11e72515b04e5e40b600f405.stex" ]
 
 [params]
 
