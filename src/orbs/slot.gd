@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var sprite_empty = $Sprite
+onready var sprite_activated = $Sprite2
 
 var current = null
 
@@ -10,6 +12,9 @@ func _on_orb_detect_body_entered(body:RigidBody2D):
 		call_deferred("fill_slot", body)
 	
 func fill_slot(body):
+	sprite_empty.visible = false
+	sprite_activated.visible = true
+	
 	buchaca.play()
 	current = body
 	body.mode = RigidBody.MODE_STATIC
