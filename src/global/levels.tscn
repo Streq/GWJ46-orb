@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/global/levels.gd" type="Script" id=1]
 [ext_resource path="res://src/global/level.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://src/levels/time_the_shot.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/levels/180Rotation.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/levels/DoublePush.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/levels/moving_slot.tscn" type="PackedScene" id=18]
 
 [node name="Levels" type="Node"]
 script = ExtResource( 1 )
@@ -77,3 +78,7 @@ scene = ExtResource( 14 )
 [node name="push_and_pull" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 9 )
+
+[node name="moving_slot" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 18 )

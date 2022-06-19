@@ -30,7 +30,7 @@ func _physics_process(delta):
 
 
 func _on_water_zone_body_entered(body:RigidBody2D):
-	if is_instance_valid(body):
+	if is_instance_valid(body) and !body.is_on_floor():
 		_add_skip(body)
 		
 func _on_water_zone_body_exited(body:RigidBody2D):

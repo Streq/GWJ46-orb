@@ -148,7 +148,6 @@ tracks/5/keys = {
 }
 
 [node name="orb" type="RigidBody2D" groups=["orb"]]
-position = Vector2( 311, 232 )
 z_index = 2
 collision_layer = 3
 collision_mask = 5

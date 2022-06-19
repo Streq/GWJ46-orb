@@ -15,11 +15,12 @@ func _physics_process(delta):
 
 func _on_goal_body_entered(body):
 	if body.is_in_group("can_win_with") and !won:
+		body.unsinkable = true
+		NodeUtils.reparent_keep_transform(body, self)
 		won = true
 		buchaca.play()
 #		Music.play_music("nothing")
 		acorde.play()
-		
 		get_tree().create_timer(2.0).connect("timeout",self,"win")
 		
 

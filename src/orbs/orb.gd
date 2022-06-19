@@ -11,6 +11,7 @@ onready var anim = $AnimationPlayer
 onready var floor_detect = $floor_detect
 onready var skip_sound = $bola_pasa_por_agua
 
+var unsinkable = false
 
 var sinking = false
 
@@ -22,10 +23,11 @@ func set_been_hit(val):
 		$modulate.modulate = Color.white.darkened(0.5)
 
 func sink():
-	emit_signal("sinking")
-	sinking = true
-	linear_damp = 10.0
-	anim.play("sink")
+	if !unsinkable:
+		emit_signal("sinking")
+		sinking = true
+		linear_damp = 10.0
+		anim.play("sink")
 
 func is_on_floor():
 	floor_detect.get_overlapping_areas().size()>0

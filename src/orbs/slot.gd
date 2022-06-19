@@ -13,11 +13,14 @@ func _on_orb_detect_body_entered(body:RigidBody2D):
 		call_deferred("fill_slot", body)
 	
 func fill_slot(body):
+	body.unsinkable = true
 	sprite_empty.visible = false
 	sprite_activated.visible = true
 	sprite_locked.visible = true
-	
+	NodeUtils.reparent(body, self)
+
 	buchaca.play()
 	current = body
 	body.mode = RigidBody.MODE_STATIC
 	body.global_position = global_position
+	
