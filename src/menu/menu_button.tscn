@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://assets/audio/sfx/Sonido_UI_01.ogg" type="AudioStream" id=1]
 [ext_resource path="res://src/menu/menu.tres" type="Theme" id=3]
 [ext_resource path="res://src/menu/menu_button.gd" type="Script" id=5]
 
@@ -32,3 +33,9 @@ custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "NEW GAME"
 script = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="pivot/button" to="AudioStreamPlayer" method="play"]

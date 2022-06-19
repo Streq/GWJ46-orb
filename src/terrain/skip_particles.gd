@@ -4,10 +4,10 @@ var orb = null
 var freeing = false
 
 func _process(delta):
-	if !emitting and !freeing and get_tree():
+	if !emitting and !freeing and is_inside_tree():
 		freeing = true
-		yield(get_tree().create_timer(lifetime),"timeout")
-		queue_free()
+		get_tree().create_timer(lifetime).connect("timeout", self, "queue_free")
+
 	if is_instance_valid(orb):
 		var _scale = clamp(100 / max(orb.linear_velocity.length(),0.1), 1.0, 1.0)
 		global_scale = Vector2(_scale,_scale)

@@ -12,12 +12,13 @@ func _ready():
 
 
 func _on_tree_changed():
-	var tree = get_tree()
-	if is_instance_valid(tree):
-		var current_scene = tree.current_scene
-		if is_instance_valid(current_scene):
-			var currently_in_a_level = current_scene.is_in_group("level")
-			pivot.visible = currently_in_a_level
+	if is_inside_tree():
+		var tree = get_tree()
+		if is_instance_valid(tree):
+			var current_scene = tree.current_scene
+			if is_instance_valid(current_scene):
+				var currently_in_a_level = current_scene.is_in_group("level")
+				pivot.visible = currently_in_a_level
 
 
 func _physics_process(delta):
