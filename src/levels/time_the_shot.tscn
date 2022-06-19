@@ -21,10 +21,9 @@ position = Vector2( 168, 480 )
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 864, 152 )
-scale = Vector2( 2.80851, 2.44 )
 
 [node name="poly_wall2" parent="goal_zone" instance=ExtResource( 6 )]
-scale = Vector2( 0.356061, 0.409836 )
+scale = Vector2( 4.20945, 4.84519 )
 
 [node name="Polygon2D" parent="goal_zone/poly_wall2" index="0"]
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )

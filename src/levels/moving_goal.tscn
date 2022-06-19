@@ -79,7 +79,6 @@ palette = 3
 
 [node name="goal_zone" parent="floor" instance=ExtResource( 2 )]
 position = Vector2( 0, 32 )
-scale = Vector2( 2.56851, 2.6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="floor"]
 autoplay = "move"

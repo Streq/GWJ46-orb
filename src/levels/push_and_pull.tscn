@@ -109,7 +109,6 @@ position = Vector2( 318, 343 )
 [node name="goal_zone2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 829, 286 )
 rotation = 1.57079
-scale = Vector2( 3.85943, 3.41222 )
 
 [node name="camera" parent="." instance=ExtResource( 5 )]
 position = Vector2( 513, 300 )
