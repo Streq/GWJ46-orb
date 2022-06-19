@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/texture/Orb-JUEGO-HOYO.png" type="Texture" id=1]
 [ext_resource path="res://src/orbs/slot.gd" type="Script" id=2]
 [ext_resource path="res://assets/audio/sfx/Hoyo_In.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/texture/Orb-JUEGO-HOYO-ACTIVADO.png" type="Texture" id=4]
+[ext_resource path="res://assets/texture/Orb-JUEGO-CANDADO.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -31,5 +32,12 @@ texture = ExtResource( 4 )
 
 [node name="buchaca" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+
+[node name="sprite_locked" type="Sprite" parent="."]
+visible = false
+position = Vector2( 3, 6 )
+scale = Vector2( 0.183333, 0.183333 )
+z_index = 5
+texture = ExtResource( 5 )
 
 [connection signal="body_entered" from="orb_detect" to="." method="_on_orb_detect_body_entered"]
