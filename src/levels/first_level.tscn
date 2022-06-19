@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/terrain/poly_wall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/orbs/orb.gd" type="Script" id=8]
 
 [node name="Node2D3" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
@@ -16,6 +17,7 @@ layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 241, 300 )
+script = ExtResource( 8 )
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 776, 296 )

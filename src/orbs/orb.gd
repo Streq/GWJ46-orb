@@ -49,8 +49,8 @@ func _on_skipping():
 
 
 func _on_orb_body_entered(body):
-	if body is RigidBody2D:
-		print(body.linear_velocity-linear_velocity)
+#	if body is RigidBody2D:
+#		print(body.linear_velocity-linear_velocity)
 	var max_speed = 1200
 #	max_speed = max_speed*max_speed
 	var loudness = min(linear_velocity.length(), max_speed)/max_speed

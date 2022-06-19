@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/terrain/water_poly.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/terrain/floor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/orbs/orb.gd" type="Script" id=11]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -51,6 +52,7 @@ layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 112, 88 )
+script = ExtResource( 11 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
 position = Vector2( 504, 216 )
@@ -87,6 +89,7 @@ position = Vector2( 768, -1.90735e-06 )
 
 [node name="repulsion_orb" parent="." instance=ExtResource( 5 )]
 position = Vector2( 128, 352 )
+script = ExtResource( 11 )
 
 [node name="poly_wall" parent="." instance=ExtResource( 7 )]
 

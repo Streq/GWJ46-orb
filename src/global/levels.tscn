@@ -39,10 +39,6 @@ scene = ExtResource( 8 )
 script = ExtResource( 2 )
 scene = ExtResource( 7 )
 
-[node name="moving_goal" type="Node" parent="."]
-script = ExtResource( 2 )
-scene = ExtResource( 13 )
-
 [node name="spinning_floor" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 11 )
@@ -50,6 +46,10 @@ scene = ExtResource( 11 )
 [node name="disappearing_floor" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 12 )
+
+[node name="moving_goal" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 13 )
 
 [node name="pull" type="Node" parent="."]
 script = ExtResource( 2 )
