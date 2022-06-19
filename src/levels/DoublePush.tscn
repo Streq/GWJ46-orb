@@ -72,9 +72,9 @@ rotation = 1.57079
 position = Vector2( 504, 288 )
 
 [node name="repulsion_orb" parent="." instance=ExtResource( 9 )]
-position = Vector2( 365, 525 )
+position = Vector2( 368, 456 )
 
 [node name="repulsion_orb2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 371, 108 )
+position = Vector2( 376, 128 )
 
 [node name="background" parent="." instance=ExtResource( 5 )]
