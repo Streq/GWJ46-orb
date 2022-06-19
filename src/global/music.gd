@@ -19,7 +19,13 @@ func play_ambience(track_name:String):
 		var track : AudioStreamPlayer = tracks[track_name] if track_name else null
 		ambience_track = track_name
 		ambience_player.crossfade_to(track.stream if track else null)
-	
+
+func pause_music():
+	music_player.pause()
+
+func unpause_music():
+	music_player.unpause()
+
 
 func play_music(track_name:String):
 	if track_name != music_track:

@@ -52,9 +52,6 @@ layers = 2
 [node name="orb3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 112, 88 )
 
-[node name="goal_zone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 768, -1.90735e-06 )
-
 [node name="camera" parent="." instance=ExtResource( 6 )]
 position = Vector2( 504, 216 )
 
@@ -66,14 +63,12 @@ polygon = PoolVector2Array( -1168, 1424, 1920, 1408, 2096, -608, -1160, -672 )
 [node name="floor" parent="." instance=ExtResource( 9 )]
 
 [node name="_auto_polygon" parent="floor" index="0"]
-color = Color( 0, 0.396078, 0.321569, 1 )
 polygon = PoolVector2Array( 0, 64, 256, 64, 256, 472, 0, 472 )
 
 [node name="floor3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 320, -96 )
 
 [node name="_auto_polygon" parent="floor3" index="0"]
-color = Color( 0, 0.396078, 0.321569, 1 )
 polygon = PoolVector2Array( -64, 160, 256, 160, 256, 352, -64, 352 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="floor3"]
@@ -85,8 +80,10 @@ anims/move = SubResource( 2 )
 [node name="floor2" parent="." instance=ExtResource( 9 )]
 
 [node name="_auto_polygon" parent="floor2" index="0"]
-color = Color( 0, 0.396078, 0.321569, 1 )
 polygon = PoolVector2Array( 576, 64, 576, 472, 960, 472, 960, 8, 712, -64, 712, 104, 648, 64 )
+
+[node name="goal_zone" parent="floor2" instance=ExtResource( 2 )]
+position = Vector2( 768, -1.90735e-06 )
 
 [node name="repulsion_orb" parent="." instance=ExtResource( 5 )]
 position = Vector2( 128, 352 )

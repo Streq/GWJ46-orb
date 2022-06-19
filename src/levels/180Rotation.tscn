@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/terrain/poly_wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/player/poolstick_controller.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/test/balls_test.gd" type="Script" id=7]
+[ext_resource path="res://src/orbs/attraction_orb.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/orbs/slot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/terrain/water_poly.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/terrain/auto_polygon.tscn" type="PackedScene" id=11]
+
+[node name="Node2D2" type="Node2D" groups=["level"]]
+script = ExtResource( 7 )
+
+[node name="poolstick_controller" parent="." instance=ExtResource( 4 )]
+layers = 2
+
+[node name="orb3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 889, 448 )
+
+[node name="slot" parent="." instance=ExtResource( 9 )]
+position = Vector2( 222, 300 )
+
+[node name="attraction_orb3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 221, 300 )
+
+[node name="goal_zone" parent="." instance=ExtResource( 3 )]
+position = Vector2( 914, 146 )
+scale = Vector2( 3.81605, 4.9135 )
+
+[node name="camera" parent="." instance=ExtResource( 1 )]
+position = Vector2( 513, 300 )
+
+[node name="water_zone" parent="." instance=ExtResource( 10 )]
+position = Vector2( 522, 93 )
+
+[node name="auto_polygon" parent="water_zone" instance=ExtResource( 11 )]
+position = Vector2( 0, -102 )
+color = Color( 0.466667, 0.784314, 0.831373, 1 )
+polygon = PoolVector2Array( 1958, 3, 246, 3, -266, 3, -1826, 3, -1826, -925, 1958, -925 )
+palette = 4
+
+[node name="poly_wall" parent="." instance=ExtResource( 2 )]
+
+[node name="Polygon2D" parent="poly_wall" index="0"]
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
+polygon = PoolVector2Array( 0, 600, 0, 560, 1, 416, 155, 524, 1024, 529, 1024, 600 )
+palette = 3
+
+[node name="poly_wall2" parent="." instance=ExtResource( 2 )]
+
+[node name="Polygon2D" parent="poly_wall2" index="0"]
+position = Vector2( 0, -417 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
+polygon = PoolVector2Array( 0, 600, 0, 560, 1, 416, 1024, 411, 1024, 465, 140, 471 )
+palette = 3
+
+[node name="poly_wall3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 72 )
+
+[node name="Polygon2D" parent="poly_wall3" index="0"]
+position = Vector2( 0, -417 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
+polygon = PoolVector2Array( 0, 857, 1, 416, 38, 490, 37, 786 )
+palette = 3
+
+[node name="poly_wall5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 72 )
+
+[node name="Polygon2D" parent="poly_wall5" index="0"]
+position = Vector2( 985, -516.109 )
+scale = Vector2( 1, 1.11565 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
+polygon = PoolVector2Array( 14, 898.232, 13, 416, 41, 398.073, 41, 893.75 )
+palette = 3
+
+[node name="poly_wall4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 72 )
+
+[node name="Polygon2D" parent="poly_wall4" index="0"]
+position = Vector2( 650, -417 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
+polygon = PoolVector2Array( -292, 647, 375, 595, 375, 729 )
+palette = 3
+
+[node name="background" parent="." instance=ExtResource( 6 )]
+
+[editable path="poly_wall"]
+[editable path="poly_wall2"]
+[editable path="poly_wall3"]
+[editable path="poly_wall5"]
+[editable path="poly_wall4"]

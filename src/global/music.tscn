@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/audio/music/Main_Song.ogg" type="AudioStream" id=1]
 [ext_resource path="res://src/global/start_music.gd" type="Script" id=2]
 [ext_resource path="res://src/global/music.gd" type="Script" id=3]
 [ext_resource path="res://assets/audio/sfx/Win_Clap.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/music/Acorde_Win.ogg" type="AudioStream" id=5]
 [ext_resource path="res://src/util/audio/AudioCrossfadePlayer.tscn" type="PackedScene" id=7]
 
 [node name="Music" type="Node2D"]
@@ -24,6 +25,11 @@ bus = "music"
 [node name="clap" type="AudioStreamPlayer" parent="tracks"]
 stream = ExtResource( 4 )
 bus = "music"
+
+[node name="win" type="AudioStreamPlayer" parent="tracks"]
+stream = ExtResource( 5 )
+
+[node name="nothing" type="AudioStreamPlayer" parent="tracks"]
 
 [node name="start" type="Node" parent="."]
 script = ExtResource( 2 )
