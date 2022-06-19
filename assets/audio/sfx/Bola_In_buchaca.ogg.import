@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Bola_In_buchaca.ogg-13155e9863eb146581d82ae4674265bb
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

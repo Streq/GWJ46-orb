@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Golpe_Bola.ogg-b33205e26d3b39c6eb43886eed01b35c.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

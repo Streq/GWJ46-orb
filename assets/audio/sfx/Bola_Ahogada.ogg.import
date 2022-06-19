@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Bola_Ahogada.ogg-d4d86f9117b93c866157a59dc9074596.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

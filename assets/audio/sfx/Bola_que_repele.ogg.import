@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Bola_que_repele.ogg-bbdff0ad6e659c068776a759e36907a6
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

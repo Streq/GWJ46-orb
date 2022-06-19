@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Hoyo_In.ogg-ad07aaf085af7c7ba25de2ff3a041f8b.oggstr"
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

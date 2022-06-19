@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Bola_Pasa_Por_Agua.ogg-29b98b61283f8f821ffe810bd8ed0
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

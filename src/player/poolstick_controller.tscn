@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/player/poolstick_controller.gd" type="Script" id=1]
 [ext_resource path="res://assets/texture/poolstick.png" type="Texture" id=2]
+[ext_resource path="res://assets/audio/sfx/Hit_OtrasBolas.ogg" type="AudioStream" id=3]
 
 [node name="poolstick_controller" type="Node2D" groups=["poolstick"]]
 z_index = 4096
@@ -17,3 +18,6 @@ position = Vector2( -32, 0 )
 texture = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="hit_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

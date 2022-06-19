@@ -26,6 +26,7 @@ SPLASH_PARTICLES = ExtResource( 3 )
 shape = SubResource( 3 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.466667, 0.784314, 0.831373, 1 )
 polygon = PoolVector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
 script = ExtResource( 4 )
 palette = 4

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Sonido_UI_01.ogg-4f562b73f8ef0514d916199c1b6337d3.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

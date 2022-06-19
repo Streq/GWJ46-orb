@@ -50,6 +50,7 @@ func _add_skip(body):
 		add_child(skip)
 		skip._process(0.0)
 		skips[body] = skip
+		body._on_skipping()
 
 func _remove_skip(body):
 	if skips.has(body):

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Hit_OtrasBolas.ogg-71b687f2f417ab7f907126e591b3f6ea.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Bola_se_quema.ogg-a65418d7c6e371c5d338ad260eab1b7d.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

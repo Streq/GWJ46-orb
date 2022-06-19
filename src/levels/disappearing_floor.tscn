@@ -353,9 +353,8 @@ position = Vector2( 513, 299 )
 [node name="water_zone2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1010, 330 )
 rotation = 1.57079
-scale = Vector2( 16.12, 1 )
 
 [node name="auto_polygon" parent="water_zone2" index="0"]
-polygon = PoolVector2Array( 19.2305, 746.002, -17.4941, 745.998, -17.4939, 281.998, 19.2307, 282.002 )
+polygon = PoolVector2Array( 229.995, 746.001, -282.005, 745.998, -282.002, 281.998, 229.998, 282.001 )
 
 [editable path="water_zone2"]

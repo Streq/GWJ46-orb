@@ -5,13 +5,12 @@
 
 [node name="skip_particles" type="CPUParticles2D"]
 modulate = Color( 0.65, 0.988333, 1, 1 )
-amount = 40
-lifetime = 0.1
-explosiveness = 1.0
+emitting = false
+amount = 60
 local_coords = false
 texture = ExtResource( 2 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
-initial_velocity = 24.88
+initial_velocity = 25.0
 scale_amount = 0.2
 script = ExtResource( 1 )

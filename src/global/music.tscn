@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/audio/music/Main_Song.ogg" type="AudioStream" id=1]
+[ext_resource path="res://src/global/start_music.gd" type="Script" id=2]
+[ext_resource path="res://src/global/music.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/sfx/Win_Clap.ogg" type="AudioStream" id=4]
+[ext_resource path="res://src/util/audio/AudioCrossfadePlayer.tscn" type="PackedScene" id=7]
+
+[node name="Music" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="music_player" parent="." instance=ExtResource( 7 )]
+bus = "music"
+
+[node name="ambience_player" parent="." instance=ExtResource( 7 )]
+bus = "sfx"
+
+[node name="tracks" type="Node" parent="."]
+
+[node name="gameplay" type="AudioStreamPlayer" parent="tracks"]
+stream = ExtResource( 1 )
+bus = "music"
+
+[node name="clap" type="AudioStreamPlayer" parent="tracks"]
+stream = ExtResource( 4 )
+bus = "music"
+
+[node name="start" type="Node" parent="."]
+script = ExtResource( 2 )

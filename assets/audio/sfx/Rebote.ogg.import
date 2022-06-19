@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Rebote.ogg-84a42110c3d8e1b0f8e597fe555785f3.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

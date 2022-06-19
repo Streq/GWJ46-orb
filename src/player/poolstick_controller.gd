@@ -26,6 +26,8 @@ var mouse_pos := Vector2()
 export var max_dist := 256.0
 export var impulse_multiplier = 1200.0
 
+onready var hit_sound := $hit_sound
+
 func _ready():
 	_change_state(IDLE)
 
@@ -91,6 +93,7 @@ func _change_state(new_state:int):
 			if selected.sleeping or selected.linear_velocity.is_equal_approx(Vector2()):
 				selected.apply_impulse(selected.to_local(point_of_impulse), (point_of_impulse-point_of_release).normalized()*impulse)
 				selected.been_hit = true
+				hit_sound.play()
 				yield(get_tree().create_timer(0.3),"timeout")
 			_change_state(IDLE)
 			

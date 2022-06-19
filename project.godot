@@ -91,6 +91,7 @@ Levels="*res://src/global/levels.tscn"
 Pause="*res://src/global/pause.tscn"
 Retry="*res://src/global/retry.tscn"
 COLORS="*res://src/global/colors.tscn"
+Music="*res://src/global/music.tscn"
 
 [importer_defaults]
 

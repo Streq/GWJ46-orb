@@ -14,7 +14,9 @@ func _ready():
 func next_level():
 	self.current_level += 1
 	if current_level>=levels.size():
+		Music.play_ambience("clap")
 		get_tree().change_scene_to(level_menu)
+		
 	else:
 		reload_current_level()
 	

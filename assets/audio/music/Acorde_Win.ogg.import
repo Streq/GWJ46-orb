@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Acorde_Win.ogg-f057135c6e68bd759f07585dc4d599f7.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

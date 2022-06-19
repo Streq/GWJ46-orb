@@ -9,6 +9,8 @@ export var been_hit = false setget set_been_hit
 
 onready var anim = $AnimationPlayer
 onready var floor_detect = $floor_detect
+onready var skip_sound = $bola_pasa_por_agua
+
 
 var sinking = false
 
@@ -38,3 +40,26 @@ func _on_floor_detect_area_exited(area):
 	if floored and floor_detect.get_overlapping_areas().size() == 0:
 		floored = false
 		emit_signal("floor_exited")
+
+func _on_skipping():
+	if linear_velocity.length_squared() > 750*750:
+		skip_sound.play()
+
+
+func _on_orb_body_entered(body):
+	if body is RigidBody2D:
+		print(body.linear_velocity-linear_velocity)
+	var max_speed = 1200
+#	max_speed = max_speed*max_speed
+	var loudness = min(linear_velocity.length(), max_speed)/max_speed
+	#-80db equivale a 0
+	#0db equivale a 1200*1200
+	#-80/1200*1200
+	if loudness > 0.2:
+		if body.is_in_group("orb"):
+			$golpe_bola.volume_db = (loudness-1)*10.0
+			$golpe_bola.playing = true
+		else:
+			$rebote.volume_db = (loudness-1)*10.0
+			$rebote.playing = true
+		
