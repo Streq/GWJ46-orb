@@ -173,6 +173,7 @@ collision_mask = 32
 shape = SubResource( 7 )
 
 [node name="modulate" type="Node2D" parent="."]
+scale = Vector2( 0.2, 0.2 )
 
 [node name="Sprite" type="Sprite" parent="modulate"]
 texture = ExtResource( 1 )

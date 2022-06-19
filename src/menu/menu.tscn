@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/menu/menu_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/menu/level_select.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/font/raisonne_extra_bold.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/texture/Orb-Menu-LogoTest.png" type="Texture" id=3]
 [ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/menu/main_menu.gd" type="Script" id=5]
+[ext_resource path="res://assets/texture/Orb-Menu-Marco.png" type="Texture" id=6]
 
 [node name="main_menu" type="CanvasLayer" groups=["menu"]]
 script = ExtResource( 5 )
@@ -14,29 +15,27 @@ level_select = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Label" type="Label" parent="pivot"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -165.0
-margin_top = -236.0
-margin_right = 165.0
-margin_bottom = -61.0
-custom_colors/font_color = Color( 0.976471, 0.807843, 0.760784, 1 )
-custom_fonts/font = ExtResource( 3 )
-text = "PULF"
-align = 1
+[node name="TextureRect2" type="TextureRect" parent="pivot"]
+anchor_left = 0.301
+anchor_top = 0.173
+anchor_right = 0.699
+anchor_bottom = 0.427
+margin_left = 0.27597
+margin_top = 0.199997
+margin_right = -0.276062
+margin_bottom = -0.200012
+mouse_filter = 2
+texture = ExtResource( 3 )
+expand = true
 
 [node name="HBoxContainer" type="VBoxContainer" parent="pivot"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = -32.0
-margin_right = 128.0
-margin_bottom = 32.0
+anchor_left = 0.375
+anchor_top = 0.507
+anchor_right = 0.625
+anchor_bottom = 0.62
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="new_game" parent="pivot/HBoxContainer" instance=ExtResource( 1 )]
 margin_right = 256.0
@@ -48,7 +47,15 @@ margin_right = 256.0
 margin_bottom = 68.0
 
 [node name="button" parent="pivot/HBoxContainer/choose_level/pivot" index="0"]
-text = "CHOOSE LEVEL"
+text = "SELECT LEVEL"
+
+[node name="TextureRect" type="TextureRect" parent="pivot"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
 
 [node name="background" parent="." instance=ExtResource( 4 )]
 palette = 0

@@ -20,6 +20,8 @@ rect_min_size = Vector2( 256, 32 )
 [node name="pivot" type="Node2D" parent="."]
 
 [node name="button" type="Button" parent="pivot"]
+anchor_right = 6.4
+anchor_bottom = 0.8
 margin_right = 256.0
 margin_bottom = 32.0
 grow_horizontal = 2

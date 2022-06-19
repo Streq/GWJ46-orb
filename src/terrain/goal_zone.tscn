@@ -19,4 +19,6 @@ shape = SubResource( 3 )
 color = Color( 0, 0.227451, 1, 0.537255 )
 polygon = PoolVector2Array( -10, -10, -10, 10, 10, 10, 10, -10 )
 
+[node name="Sprite" type="Sprite" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_goal_zone_body_entered"]
