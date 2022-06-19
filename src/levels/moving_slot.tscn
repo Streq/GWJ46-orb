@@ -88,7 +88,7 @@ polygon = PoolVector2Array( -1696, -976, -1456, 2000, 3128, 2048, 2720, -1080 )
 [node name="floor" parent="." instance=ExtResource( 10 )]
 
 [node name="_auto_polygon" parent="floor" index="0"]
-polygon = PoolVector2Array( 24, 96, 24, 504, 96, 504, 96, 279.911, 248, 280, 248, 576, 1000, 576, 1000, 96 )
+polygon = PoolVector2Array( 24, 96, 24, 504, 96, 504, 96, 272, 248, 443.654, 248, 576, 1000, 576, 1000, 96 )
 
 [node name="goal_zone" parent="floor" instance=ExtResource( 2 )]
 position = Vector2( 960, 448 )
@@ -114,6 +114,15 @@ color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( 896, 480, 672, 456, 672, 416 )
 palette = 3
 
+[node name="poly_wall4" parent="." instance=ExtResource( 11 )]
+position = Vector2( -304, -72 )
+
+[node name="Polygon2D" parent="poly_wall4" index="0"]
+position = Vector2( -32, -72 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
+polygon = PoolVector2Array( 704, 568, 688, 568, 688, 320, 704, 320 )
+palette = 3
+
 [node name="poly_wall2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 104, 152 )
 
@@ -128,4 +137,5 @@ palette = 3
 [editable path="floor"]
 [editable path="poly_wall"]
 [editable path="poly_wall3"]
+[editable path="poly_wall4"]
 [editable path="poly_wall2"]

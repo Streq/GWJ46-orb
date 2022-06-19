@@ -21,7 +21,7 @@ margin_top = -115.0
 margin_right = 20.0
 margin_bottom = -75.0
 grow_horizontal = 2
-columns = 10
+columns = 5
 
 [node name="Label" parent="." instance=ExtResource( 4 )]
 
