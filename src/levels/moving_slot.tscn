@@ -29,7 +29,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "move"
-length = 3.0
+length = 3.3
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -38,10 +38,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5 ),
+"times": PoolRealArray( 0.5, 1.3, 1.8, 2.6, 3.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 128, 128 ), Vector2( 128, 232 ), Vector2( 320, 448 ), Vector2( 752, 448 ), Vector2( 752, 128 ) ]
+"values": [ Vector2( 752, 128 ), Vector2( 128, 128 ), Vector2( 128, 232 ), Vector2( 320, 448 ), Vector2( 752, 448 ) ]
 }
 
 [node name="Node2D3" type="Node2D" groups=["level"]]
@@ -66,7 +66,7 @@ position = Vector2( 56, 456 )
 [node name="background" parent="." instance=ExtResource( 5 )]
 
 [node name="floor3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 440, 128 )
+position = Vector2( 320, 128 )
 
 [node name="_auto_polygon" parent="floor3" index="0"]
 z_index = 1
@@ -121,7 +121,34 @@ position = Vector2( -304, -72 )
 [node name="Polygon2D" parent="poly_wall4" index="0"]
 position = Vector2( -32, -72 )
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 704, 464, 688, 464, 688, 320, 704, 320 )
+polygon = PoolVector2Array( 784, 464, 616, 464, 696, 320 )
+palette = 3
+
+[node name="poly_wall6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 232, 96 )
+
+[node name="Polygon2D" parent="poly_wall6" index="0"]
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
+polygon = PoolVector2Array( 24, 0, -200, 0, -136, -16, -40, -16 )
+palette = 3
+
+[node name="poly_wall8" parent="." instance=ExtResource( 11 )]
+position = Vector2( 408, 576 )
+rotation = 3.14159
+
+[node name="Polygon2D" parent="poly_wall8" index="0"]
+position = Vector2( 136, 0.000610352 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
+polygon = PoolVector2Array( 24, 0, -80, -0.000366211, -240, -0.0010376, -40, -16 )
+palette = 3
+
+[node name="poly_wall7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 24, 128 )
+rotation = -1.57079
+
+[node name="Polygon2D" parent="poly_wall7" index="0"]
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
+polygon = PoolVector2Array( 24, 0, -200, 0, -136, -16, -40, -16 )
 palette = 3
 
 [node name="poly_wall5" parent="." instance=ExtResource( 11 )]
@@ -130,7 +157,7 @@ position = Vector2( -536, -224 )
 [node name="Polygon2D" parent="poly_wall5" index="0"]
 position = Vector2( -56, 80 )
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 840, 584, 688, 464, 688, 408, 712, 440, 712, 440, 776, 512 )
+polygon = PoolVector2Array( 840, 584, 688, 464, 688, 416 )
 palette = 3
 
 [node name="poly_wall2" parent="." instance=ExtResource( 11 )]
@@ -148,5 +175,8 @@ palette = 3
 [editable path="poly_wall"]
 [editable path="poly_wall3"]
 [editable path="poly_wall4"]
+[editable path="poly_wall6"]
+[editable path="poly_wall8"]
+[editable path="poly_wall7"]
 [editable path="poly_wall5"]
 [editable path="poly_wall2"]
