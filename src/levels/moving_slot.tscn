@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://src/orbs/slot.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/terrain/floor.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/terrain/poly_wall.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/orbs/orb.gd" type="Script" id=12]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -30,7 +29,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "move"
-length = 2.0
+length = 3.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -39,10 +38,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.5, 1, 1.5, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 320, 128 ), Vector2( 320, 448 ), Vector2( 752, 448 ), Vector2( 752, 128 ) ]
+"values": [ Vector2( 128, 128 ), Vector2( 128, 232 ), Vector2( 320, 448 ), Vector2( 752, 448 ), Vector2( 752, 128 ) ]
 }
 
 [node name="Node2D3" type="Node2D" groups=["level"]]
@@ -53,11 +52,9 @@ layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 512, 296 )
-script = ExtResource( 12 )
 
 [node name="orb4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 56, 296 )
-script = ExtResource( 12 )
+position = Vector2( 64, 128 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
 position = Vector2( 512, 300 )
@@ -65,12 +62,11 @@ current = false
 
 [node name="repulsion_orb" parent="." instance=ExtResource( 7 )]
 position = Vector2( 56, 456 )
-script = ExtResource( 12 )
 
 [node name="background" parent="." instance=ExtResource( 5 )]
 
 [node name="floor3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 320, 128 )
+position = Vector2( 440, 128 )
 
 [node name="_auto_polygon" parent="floor3" index="0"]
 z_index = 1
@@ -125,7 +121,16 @@ position = Vector2( -304, -72 )
 [node name="Polygon2D" parent="poly_wall4" index="0"]
 position = Vector2( -32, -72 )
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 704, 568, 688, 568, 688, 320, 704, 320 )
+polygon = PoolVector2Array( 704, 464, 688, 464, 688, 320, 704, 320 )
+palette = 3
+
+[node name="poly_wall5" parent="." instance=ExtResource( 11 )]
+position = Vector2( -536, -224 )
+
+[node name="Polygon2D" parent="poly_wall5" index="0"]
+position = Vector2( -56, 80 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
+polygon = PoolVector2Array( 840, 584, 688, 464, 688, 408, 712, 440, 712, 440, 776, 512 )
 palette = 3
 
 [node name="poly_wall2" parent="." instance=ExtResource( 11 )]
@@ -143,4 +148,5 @@ palette = 3
 [editable path="poly_wall"]
 [editable path="poly_wall3"]
 [editable path="poly_wall4"]
+[editable path="poly_wall5"]
 [editable path="poly_wall2"]

@@ -44,7 +44,7 @@ func _physics_process(delta):
 #				print("hit something")
 				selected = orbs[0].collider
 				if Input.is_action_just_pressed("selected"):
-					if selected.sleeping and !selected.been_hit:
+					if selected.sleeping or selected.linear_velocity.is_equal_approx(Vector2.ZERO) and !selected.been_hit:
 						point_of_impulse = selected.global_position
 						_change_state(AIMING)
 						
@@ -90,7 +90,7 @@ func _change_state(new_state:int):
 			tween.start()
 			yield(tween, "tween_all_completed")
 			var impulse = get_power()*impulse_multiplier
-			if selected.sleeping or selected.linear_velocity.is_equal_approx(Vector2()):
+			if selected.sleeping or selected.linear_velocity.is_equal_approx(Vector2.ZERO):
 				selected.apply_impulse(selected.to_local(point_of_impulse), (point_of_impulse-point_of_release).normalized()*impulse)
 				selected.been_hit = true
 				hit_sound.play()
