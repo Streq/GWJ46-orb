@@ -47,7 +47,7 @@ palette = 4
 
 [node name="Polygon2D" parent="poly_wall" index="0"]
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 0, 600, 0, 560, 384, 560, 512, 448, 640, 560, 1024, 560, 1024, 600 )
+polygon = PoolVector2Array( 0, 600, 0, 448, 64, 448, 64, 560, 384, 560, 512, 448, 640, 560, 960, 560, 960, 448, 1024, 448, 1024, 600 )
 palette = 3
 
 [node name="background" parent="." instance=ExtResource( 11 )]
