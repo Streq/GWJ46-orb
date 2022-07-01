@@ -46,7 +46,7 @@ func _physics_process(delta):
 			if orbs:
 #				print("hit something")
 				selected = orbs[0].collider
-				if selected.sleeping or selected.linear_velocity.is_equal_approx(Vector2.ZERO) and !selected.been_hit:
+				if (selected.sleeping or selected.linear_velocity.is_equal_approx(Vector2.ZERO)) and !selected.been_hit:
 					selected._on_mouse_entered()
 					if Input.is_action_just_pressed("selected"):
 						point_of_impulse = selected.global_position
