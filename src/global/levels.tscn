@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/global/levels.gd" type="Script" id=1]
 [ext_resource path="res://src/global/level.gd" type="Script" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://src/levels/pull_and_pit.tscn" type="PackedScene" id=21]
 [ext_resource path="res://src/levels/push_and_slot.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/levels/pull_tuto.tscn" type="PackedScene" id=23]
+[ext_resource path="res://src/levels/multiple_goals.tscn" type="PackedScene" id=24]
+[ext_resource path="res://src/levels/one_shot_two_goals.tscn" type="PackedScene" id=25]
 
 [node name="Levels" type="Node"]
 script = ExtResource( 1 )
@@ -47,6 +49,10 @@ scene = ExtResource( 8 )
 [node name="spinning_floor" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 11 )
+
+[node name="one_shot_two_goals" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 25 )
 
 [node name="double_shot" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -87,6 +93,10 @@ scene = ExtResource( 15 )
 [node name="disappearing_floor" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 12 )
+
+[node name="multiple_goals" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 24 )
 
 [node name="double_push" type="Node" parent="."]
 script = ExtResource( 2 )

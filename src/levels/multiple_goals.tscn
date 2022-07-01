@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
+[ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/orbs/common_orb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/player/poolstick_controller.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/terrain/water_zone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/camera/camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/util/circle_polygon.gd" type="Script" id=7]
+[ext_resource path="res://src/terrain/floor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=10]
+
+[node name="Node2D4" type="Node2D" groups=["level"]]
+script = ExtResource( 1 )
+
+[node name="poolstick_controller" parent="." instance=ExtResource( 4 )]
+layers = 2
+
+[node name="fall_zone" parent="." instance=ExtResource( 5 )]
+position = Vector2( 426, -4669 )
+scale = Vector2( 857.482, 1506.17 )
+
+[node name="fall_zone4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 490, 1892 )
+scale = Vector2( 226.55, 137.883 )
+
+[node name="fall_zone2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1435, 188 )
+scale = Vector2( 152.499, -281.281 )
+
+[node name="fall_zone3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 11663, -468 )
+scale = Vector2( 1076.62, 544.853 )
+
+[node name="camera" parent="." instance=ExtResource( 6 )]
+position = Vector2( 513, 300 )
+
+[node name="background" parent="." instance=ExtResource( 10 )]
+
+[node name="floor" parent="." instance=ExtResource( 8 )]
+position = Vector2( 512, 300 )
+
+[node name="_auto_polygon" parent="floor" index="0"]
+polygon = PoolVector2Array( -1.31134e-05, 300, -58.5271, 294.236, -114.805, 277.164, -166.671, 249.441, -212.132, 212.132, -249.441, 166.671, -277.164, 114.805, -294.236, 58.5271, -300, -2.62268e-05, -294.236, -58.5271, -277.164, -114.805, -249.441, -166.671, -212.132, -212.132, -166.671, -249.441, -114.805, -277.164, -58.5271, -294.236, 3.57746e-06, -300, 58.5271, -294.236, 114.805, -277.164, 166.671, -249.441, 212.132, -212.132, 249.441, -166.671, 277.164, -114.805, 294.236, -58.5271, 300, 5.24537e-05, 294.236, 58.5272, 277.164, 114.805, 249.441, 166.671, 212.132, 212.132, 166.671, 249.441, 114.805, 277.164, 58.527, 294.236 )
+
+[node name="circle_polygon" type="Node" parent="floor/_auto_polygon" index="0"]
+script = ExtResource( 7 )
+radius = 300.0
+
+[node name="goal_zone2" parent="floor" instance=ExtResource( 2 )]
+position = Vector2( 160, 64 )
+rotation = 1.57079
+
+[node name="goal_zone3" parent="floor" instance=ExtResource( 2 )]
+position = Vector2( -160, 64 )
+rotation = 1.57079
+
+[node name="goal_zone4" parent="floor" instance=ExtResource( 2 )]
+position = Vector2( 0, -192 )
+rotation = 1.57079
+
+[node name="orb4" parent="floor" instance=ExtResource( 3 )]
+position = Vector2( -64, 84 )
+input_pickable = false
+
+[node name="orb5" parent="floor" instance=ExtResource( 3 )]
+position = Vector2( -64, 52 )
+input_pickable = false
+been_hit = true
+
+[node name="orb6" parent="floor" instance=ExtResource( 3 )]
+position = Vector2( -24, -28 )
+input_pickable = false
+been_hit = true
+
+[node name="orb7" parent="floor" instance=ExtResource( 3 )]
+position = Vector2( 0, -36 )
+input_pickable = false
+been_hit = true
+
+[node name="orb10" parent="floor" instance=ExtResource( 3 )]
+position = Vector2( 24, -28 )
+input_pickable = false
+been_hit = true
+
+[node name="orb12" parent="floor" instance=ExtResource( 3 )]
+position = Vector2( -104, 68 )
+input_pickable = false
+been_hit = true
+
+[editable path="floor"]

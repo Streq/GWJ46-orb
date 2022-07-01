@@ -20,6 +20,9 @@ func _on_goal_body_entered(body):
 		won = true
 		buchaca.play()
 #		Music.play_music("nothing")
+		for goal in Group.get_all("goal"):
+			if !goal.won:
+				return
 		acorde.play()
 		get_tree().create_timer(2.0).connect("timeout",self,"win")
 		
