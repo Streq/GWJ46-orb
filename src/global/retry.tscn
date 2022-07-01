@@ -82,11 +82,11 @@ script = ExtResource( 1 )
 [node name="pivot" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="retry" parent="pivot" instance=ExtResource( 3 )]
 margin_left = 957.0
 margin_right = 1021.0
-custom_colors/font_color_focus = Color( 0.976471, 0.807843, 0.760784, 1 )
 text = "R"
 
 [node name="shine" type="ColorRect" parent="pivot/retry"]
@@ -118,7 +118,6 @@ align = 1
 [node name="pause" parent="pivot" instance=ExtResource( 3 )]
 margin_left = 883.0
 margin_right = 947.0
-custom_colors/font_color_focus = Color( 0.976471, 0.807843, 0.760784, 1 )
 text = "P"
 
 [node name="Label" type="Label" parent="pivot/pause"]

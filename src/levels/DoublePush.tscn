@@ -44,6 +44,7 @@ layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 618, 428 )
+input_pickable = false
 
 [node name="slot" parent="." instance=ExtResource( 7 )]
 position = Vector2( 209, 422 )
@@ -73,8 +74,10 @@ position = Vector2( 504, 288 )
 
 [node name="repulsion_orb" parent="." instance=ExtResource( 9 )]
 position = Vector2( 368, 456 )
+input_pickable = false
 
 [node name="repulsion_orb2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 376, 128 )
+input_pickable = false
 
 [node name="background" parent="." instance=ExtResource( 5 )]

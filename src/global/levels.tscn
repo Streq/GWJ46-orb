@@ -1,14 +1,14 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/global/levels.gd" type="Script" id=1]
 [ext_resource path="res://src/global/level.gd" type="Script" id=2]
 [ext_resource path="res://src/levels/first_level.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/menu/level_select.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/levels/pull.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/levels/push_tuto.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/levels/bounce_off_wall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/levels/moving_obstacles.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/levels/rotating_obstacle.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/levels/push_and_pull.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/levels/pull_and_push.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/levels/push.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/levels/spinning_floor.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/levels/disappearing_floor.tscn" type="PackedScene" id=12]
@@ -18,6 +18,11 @@
 [ext_resource path="res://src/levels/180Rotation.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/levels/DoublePush.tscn" type="PackedScene" id=17]
 [ext_resource path="res://src/levels/moving_slot.tscn" type="PackedScene" id=18]
+[ext_resource path="res://src/levels/double_shot.tscn" type="PackedScene" id=19]
+[ext_resource path="res://src/levels/zigzag.tscn" type="PackedScene" id=20]
+[ext_resource path="res://src/levels/pull_and_pit.tscn" type="PackedScene" id=21]
+[ext_resource path="res://src/levels/push_and_slot.tscn" type="PackedScene" id=22]
+[ext_resource path="res://src/levels/pull_tuto.tscn" type="PackedScene" id=23]
 
 [node name="Levels" type="Node"]
 script = ExtResource( 1 )
@@ -31,9 +36,17 @@ scene = ExtResource( 3 )
 script = ExtResource( 2 )
 scene = ExtResource( 6 )
 
+[node name="zigzag" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 20 )
+
 [node name="rotating_obstacle" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 8 )
+
+[node name="double_shot" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 19 )
 
 [node name="moving_obstacles" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -43,17 +56,25 @@ scene = ExtResource( 7 )
 script = ExtResource( 2 )
 scene = ExtResource( 11 )
 
-[node name="disappearing_floor" type="Node" parent="."]
-script = ExtResource( 2 )
-scene = ExtResource( 12 )
-
 [node name="moving_goal" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 13 )
 
-[node name="pull" type="Node" parent="."]
+[node name="push_tuto" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 5 )
+
+[node name="push_and_slot" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 22 )
+
+[node name="pull_tuto" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 23 )
+
+[node name="pull_and_slot" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 21 )
 
 [node name="push" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -62,6 +83,10 @@ scene = ExtResource( 10 )
 [node name="time_the_shot" type="Node" parent="."]
 script = ExtResource( 2 )
 scene = ExtResource( 15 )
+
+[node name="disappearing_floor" type="Node" parent="."]
+script = ExtResource( 2 )
+scene = ExtResource( 12 )
 
 [node name="double_push" type="Node" parent="."]
 script = ExtResource( 2 )

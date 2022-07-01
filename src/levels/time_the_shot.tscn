@@ -18,6 +18,7 @@ layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 168, 480 )
+input_pickable = false
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 864, 152 )

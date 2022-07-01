@@ -28,7 +28,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "rotate"
-length = 2.0
+length = 3.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -37,7 +37,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 360.0 ]
@@ -82,9 +82,11 @@ anims/rotate = SubResource( 2 )
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 146, 299 )
+input_pickable = false
 
 [node name="orb4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 384, 288 )
+input_pickable = false
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 914, 292 )

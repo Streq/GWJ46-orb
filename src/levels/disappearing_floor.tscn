@@ -341,6 +341,7 @@ seek_time = 0.8
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 146, 299 )
+input_pickable = false
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 914, 292 )

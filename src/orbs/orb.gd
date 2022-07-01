@@ -65,3 +65,10 @@ func _on_orb_body_entered(body):
 			$rebote.volume_db = (loudness-1)*10.0
 			$rebote.playing = true
 		
+
+onready var hittable_glow = $hittable_glow
+func _on_mouse_entered():
+	hittable_glow.visible = !been_hit
+
+func _on_mouse_exited():
+	hittable_glow.visible = false

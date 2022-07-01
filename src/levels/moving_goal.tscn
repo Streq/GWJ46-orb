@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://src/terrain/auto_polygon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/terrain/floor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/orbs/orb.gd" type="Script" id=11]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -29,7 +28,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "move"
-length = 4.0
+length = 6.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -38,10 +37,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 736, 368 ), Vector2( 192, 368 ) ]
+"values": [ Vector2( 736, 368 ), Vector2( 88, 368 ) ]
 }
 
 [node name="Node2D5" type="Node2D" groups=["level"]]
@@ -51,8 +50,7 @@ script = ExtResource( 1 )
 layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 200, 192 )
-script = ExtResource( 11 )
+position = Vector2( 192, 64 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
 position = Vector2( 512, 300 )
@@ -61,26 +59,28 @@ position = Vector2( 512, 300 )
 position = Vector2( 457, 291 )
 
 [node name="Polygon2D" parent="poly_wall" index="0"]
+position = Vector2( 119, 5 )
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 47, -323, 191, -123, 327, -323 )
+polygon = PoolVector2Array( 151, -331, 152, -24, 216, -24, 215, -331 )
 palette = 3
 
 [node name="floor" parent="." instance=ExtResource( 9 )]
 position = Vector2( 736, 368 )
 
 [node name="auto_polygon" parent="floor" instance=ExtResource( 8 )]
-polygon = PoolVector2Array( -64, 96, -64, -64, 288, -64, 136, 96 )
+polygon = PoolVector2Array( -72, 128, -120, 64, -120, 0, -72, -64, 416, -64, 136, 96, 80, 96, 80, 128 )
 
 [node name="poly_wall" parent="floor" instance=ExtResource( 7 )]
 position = Vector2( 0, 32 )
+mode = 3
 
 [node name="Polygon2D" parent="floor/poly_wall" index="0"]
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 80, 64, 80, 96, -88, 96, -88, -96, 80, -96, 80, -64, -56, -64, -56, 64 )
+polygon = PoolVector2Array( 80, 64, 80, 96, -72, 96, -120, 32, -120, -32, -72, -96, 80, -96, 80, -64, -56, -64, -88, -24, -88, 24, -56, 64 )
 palette = 3
 
 [node name="goal_zone" parent="floor" instance=ExtResource( 2 )]
-position = Vector2( 0, 32 )
+position = Vector2( -24, 32 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="floor"]
 autoplay = "move"
