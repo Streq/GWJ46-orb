@@ -81,7 +81,7 @@ anims/move = SubResource( 2 )
 [node name="floor2" parent="." instance=ExtResource( 9 )]
 
 [node name="_auto_polygon" parent="floor2" index="0"]
-polygon = PoolVector2Array( 576, 64, 576, 472, 960, 472, 960, 8, 712, -64, 712, 104, 648, 64 )
+polygon = PoolVector2Array( 576, 64, 576, 472, 960, 472, 960, 8, 960, -64, 712, -64, 712, 104, 648, 64 )
 
 [node name="goal_zone" parent="floor2" instance=ExtResource( 2 )]
 position = Vector2( 768, -1.90735e-06 )
@@ -94,23 +94,14 @@ input_pickable = false
 
 [node name="Polygon2D" parent="poly_wall" index="0"]
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 960, 0, 1000, 16, 1000, 344, 1000, 376, 960, 392, 960, 320 )
+polygon = PoolVector2Array( 960, 0, 1016, 16, 1016, 376, 960, 392, 960, 320 )
 palette = 3
 
 [node name="poly_wall3" parent="." instance=ExtResource( 7 )]
 
 [node name="Polygon2D" parent="poly_wall3" index="0"]
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 672, -72, 672, -88, 1000, -56, 1000, 24 )
-palette = 3
-
-[node name="poly_wall2" parent="." instance=ExtResource( 7 )]
-
-[node name="Polygon2D" parent="poly_wall2" index="0"]
-position = Vector2( 1672, 192 )
-rotation = 3.14159
-color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 960, 88, 1000, 112.004, 999.999, 272.004, 959.999, 264.004 )
+polygon = PoolVector2Array( 672, 80, 672, -88, 1016, -88, 1016, 32, 960, 8, 864, -48, 776, -56, 720, -32, 712, 104 )
 palette = 3
 
 [node name="background" parent="." instance=ExtResource( 10 )]
@@ -121,4 +112,3 @@ palette = 3
 [editable path="floor2"]
 [editable path="poly_wall"]
 [editable path="poly_wall3"]
-[editable path="poly_wall2"]
