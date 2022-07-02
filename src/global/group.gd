@@ -1,5 +1,5 @@
 extends Node
-
+tool
 func get_all(group: String) -> Array:
 	return get_tree().get_nodes_in_group(group)
 

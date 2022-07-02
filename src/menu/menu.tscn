@@ -58,7 +58,6 @@ expand = true
 stretch_mode = 1
 
 [node name="background" parent="." instance=ExtResource( 4 )]
-palette = 0
 
 [connection signal="pressed" from="pivot/HBoxContainer/new_game/pivot/button" to="." method="_on_new_game"]
 [connection signal="pressed" from="pivot/HBoxContainer/choose_level/pivot/button" to="." method="_on_choose_level"]

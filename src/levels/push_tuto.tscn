@@ -18,39 +18,39 @@ theme = "BLUE"
 layers = 2
 
 [node name="orb5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 352, 288 )
+position = Vector2( 352, 268 )
 input_pickable = false
 been_hit = true
 
 [node name="orb7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 352, 352 )
+position = Vector2( 352, 332 )
 input_pickable = false
 been_hit = true
 
 [node name="orb8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 384, 416 )
+position = Vector2( 384, 396 )
 input_pickable = false
 been_hit = true
 
 [node name="orb6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 384, 224 )
+position = Vector2( 384, 204 )
 input_pickable = false
 been_hit = true
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 280, 488 )
+position = Vector2( 304, 476 )
 
 [node name="goal_zone2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 232, 368 )
+position = Vector2( 232, 356 )
 
 [node name="goal_zone3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 232, 264 )
+position = Vector2( 232, 244 )
 
 [node name="goal_zone4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 304, 144 )
+position = Vector2( 304, 124 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
-position = Vector2( 513, 300 )
+position = Vector2( 512, 300 )
 current = false
 
 [node name="water_zone" parent="." instance=ExtResource( 10 )]
@@ -58,10 +58,11 @@ position = Vector2( 522, 93 )
 
 [node name="auto_polygon" parent="water_zone" instance=ExtResource( 8 )]
 color = Color( 0.466667, 0.784314, 0.831373, 1 )
-polygon = PoolVector2Array( 1958, 3, 246, 3, -10, 3, -178, 3, -266, 3, -458, 3, -458, 459, 438, 459, 438, 3, 582, 3, 1958, 3, 1974, 907, -1834, 907, -1826, -925, 1958, -925 )
+polygon = PoolVector2Array( 1958, 3, 438, 35, 374, -29, -394, -29, -458, 35, -458, 387, -394, 451, 374.918, 451, 438, 387, 438, 35, 1958, 3, 1974, 907, -1834, 907, -1826, -925, 1958, -925 )
 palette = 4
 
 [node name="background" parent="." instance=ExtResource( 11 )]
+palette = 6
 
 [node name="repulsion_orb" parent="." instance=ExtResource( 7 )]
-position = Vector2( 768, 320 )
+position = Vector2( 768, 300 )

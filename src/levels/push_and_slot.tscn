@@ -34,24 +34,18 @@ position = Vector2( 522, 93 )
 
 [node name="auto_polygon" parent="water_zone" instance=ExtResource( 8 )]
 color = Color( 0.466667, 0.784314, 0.831373, 1 )
-polygon = PoolVector2Array( 1958, 3, 246, 3, -10, 3, -10, 467, -178, 467, -50, 243, -178, 3, -266, 3, -458, 3, -458, 475, -530, 467, -1826, 3, -1826, -925, 1958, -925 )
+polygon = PoolVector2Array( 1958, -93, 506, 467, 462, 467, 406, -37, 342, -57, 54, -61, 22, -49, 22, -97, -6, -97, -10, 395, -10, 467, -38, 467, -58, 467, -94, 31, -174, 3, -266, 3, -426, 3, -458, 35, -458, 439, -402, 511, -538, 511, -1826, 3, -1826, -925, 1958, -925 )
 palette = 4
 
 [node name="poly_wall" parent="." instance=ExtResource( 5 )]
 
 [node name="Polygon2D" parent="poly_wall" index="0"]
-color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 0, 600, 0, 560, 384, 560, 512, 560, 512, 96, 544, 96, 544, 320, 520, 320, 520, 352, 544, 352, 544, 560, 640, 560, 1024, 560, 1024, 600 )
-palette = 3
-
-[node name="poly_wall2" parent="." instance=ExtResource( 5 )]
-
-[node name="Polygon2D" parent="poly_wall2" index="0"]
-color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 320, 352, 320, 320, -8, 320, -8, 352 )
-palette = 3
+color = Color( 0.00784314, 0.27451, 0.301961, 1 )
+polygon = PoolVector2Array( 64, 548, 64, 348, 64, 128, 96, 96, 220, 96, 228, 96, 348, 96, 428, 124, 332, 108, 104, 116, 84, 140, 84, 168, 84, 176, 89.2189, 333.289, 112, 320, 196, 320, 204, 320, 320, 320, 348, 348, 305.433, 333.217, 240, 340, 118.401, 350.133, 95.9531, 366.617, 96, 444, 96, 452, 95.4213, 532.283, 127.342, 560, 384, 560, 512, 560, 512, 496, 512, 488, 512, 96, 512, -80, 544, -80, 544, 44, 576, 32, 868, 36, 928, 56, 884, 48, 576, 48, 544, 64, 544, 96, 544, 144, 544, 161.366, 544, 324, 536, 320, 528, 320, 520, 332, 520, 340, 528, 352, 536, 352, 544, 348, 544, 560, 640, 560, 768, 560, 784, 560, 1024, 560, 1024, 600, 88, 600 )
+palette = 7
 
 [node name="background" parent="." instance=ExtResource( 11 )]
+palette = 6
 
 [node name="repulsion_orb" parent="." instance=ExtResource( 7 )]
 position = Vector2( 832, 328 )
@@ -60,4 +54,3 @@ position = Vector2( 832, 328 )
 position = Vector2( 536, 336 )
 
 [editable path="poly_wall"]
-[editable path="poly_wall2"]
