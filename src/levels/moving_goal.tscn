@@ -45,6 +45,7 @@ tracks/0/keys = {
 
 [node name="Node2D5" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
+theme = "BLUE"
 
 [node name="poolstick_controller" parent="." instance=ExtResource( 3 )]
 layers = 2
@@ -67,7 +68,7 @@ palette = 3
 [node name="floor" parent="." instance=ExtResource( 9 )]
 position = Vector2( 736, 368 )
 
-[node name="auto_polygon" parent="floor" instance=ExtResource( 8 )]
+[node name="auto_polygon" parent="floor" groups=["floor_color"] instance=ExtResource( 8 )]
 polygon = PoolVector2Array( -72, 128, -120, 64, -120, 0, -72, -64, 416, -64, 136, 96, 80, 96, 80, 128 )
 
 [node name="poly_wall" parent="floor" instance=ExtResource( 7 )]

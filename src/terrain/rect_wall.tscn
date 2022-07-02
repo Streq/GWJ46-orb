@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" groups=["wall_color"]]
 script = ExtResource( 2 )
 palette = 3
 
@@ -14,4 +14,5 @@ palette = 3
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.00784314, 0.321569, 0.254902, 1 )
 texture = ExtResource( 1 )

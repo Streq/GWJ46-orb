@@ -46,6 +46,7 @@ tracks/0/keys = {
 
 [node name="Node2D3" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
+theme = "PURPLE"
 
 [node name="poolstick_controller" parent="." instance=ExtResource( 3 )]
 layers = 2

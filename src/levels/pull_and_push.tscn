@@ -16,6 +16,7 @@ absorbent = true
 
 [node name="Node2D4" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
+theme = "PURPLE"
 
 [node name="StaticBody2D7" parent="." instance=ExtResource( 7 )]
 position = Vector2( 523, 330 )

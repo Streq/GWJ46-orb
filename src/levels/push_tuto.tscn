@@ -12,6 +12,7 @@
 
 [node name="Node2D2" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
+theme = "BLUE"
 
 [node name="poolstick_controller" parent="." instance=ExtResource( 4 )]
 layers = 2
@@ -50,6 +51,7 @@ position = Vector2( 304, 144 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
 position = Vector2( 513, 300 )
+current = false
 
 [node name="water_zone" parent="." instance=ExtResource( 10 )]
 position = Vector2( 522, 93 )

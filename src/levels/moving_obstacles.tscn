@@ -11,24 +11,29 @@
 
 [node name="Node2D3" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
+theme = "BLUE"
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 513, 21 )
 scale = Vector2( 16.12, 1 )
+palette = 7
 
 [node name="StaticBody2D2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 522, 586 )
 scale = Vector2( 16.12, 1 )
+palette = 7
 
 [node name="StaticBody2D3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 26, 297 )
 rotation = 1.57079
 scale = Vector2( 16.12, 1 )
+palette = 7
 
 [node name="StaticBody2D4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1010, 330 )
 rotation = 1.57079
 scale = Vector2( 16.12, 1 )
+palette = 7
 
 [node name="Node2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( 276, 618 )

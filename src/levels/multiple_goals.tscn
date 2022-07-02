@@ -12,6 +12,7 @@
 
 [node name="Node2D4" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
+theme = "PURPLE"
 
 [node name="poolstick_controller" parent="." instance=ExtResource( 4 )]
 layers = 2

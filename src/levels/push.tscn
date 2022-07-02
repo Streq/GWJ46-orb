@@ -13,6 +13,7 @@
 
 [node name="Node2D4" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
+theme = "BLUE"
 
 [node name="StaticBody2D6" parent="." instance=ExtResource( 7 )]
 position = Vector2( 798, 513 )

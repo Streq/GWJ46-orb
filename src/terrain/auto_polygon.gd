@@ -1,7 +1,7 @@
 tool
 extends Polygon2D
 
-export (Colors.NAMES) var palette := Colors.NAMES.BACKGROUND
+export (Colors.NAMES) var palette := Colors.NAMES.BACKGROUND setget set_palette
 
 var col : CollisionPolygon2D = null
 
@@ -31,3 +31,7 @@ func _ready():
 		par.add_child(col)
 		col.polygon = polygon
 		col.transform = transform
+
+func set_palette(val):
+	palette = val
+	color = Colors.get_color(palette)

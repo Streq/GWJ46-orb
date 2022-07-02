@@ -30,3 +30,6 @@ export var map := {
 static func get_color(index:int):
 	var key = NAMES.keys()[index]
 	return COLORS.map[key]
+	
+static func get_color_by_name(name:String):
+	return COLORS.map[name]
