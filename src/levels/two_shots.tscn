@@ -15,10 +15,16 @@ script = ExtResource( 1 )
 layers = 2
 
 [node name="orb3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 241, 300 )
+position = Vector2( 256, 448 )
+
+[node name="orb4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 768, 448 )
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 776, 296 )
+position = Vector2( 104, 104 )
+
+[node name="goal_zone2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, 128 )
 
 [node name="camera" parent="." instance=ExtResource( 6 )]
 position = Vector2( 512, 300 )
@@ -28,7 +34,7 @@ position = Vector2( 457, 291 )
 
 [node name="Polygon2D" parent="poly_wall" index="0"]
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 439, -11, 567, -291, -457, -291, -457, 309, 567, 309, 439, 5, 407, 93, -329, 93, -329, -99, 407, -99 )
+polygon = PoolVector2Array( 503, 221, 567, 221, 567, -291, -457, -291, -457, 309, 567, 309, 567, 221, -393, 221, -393, 21, -97, 149, -203.291, 72.2345, -245.912, 41.4521, -385, -59, -393, -227, 503, -227, 503, -5.60956, 311, 29, 503, 54.0807 )
 palette = 3
 
 [node name="poly_wall2" parent="." instance=ExtResource( 7 )]
@@ -36,7 +42,7 @@ position = Vector2( 457, 291 )
 
 [node name="Polygon2D" parent="poly_wall2" index="0"]
 color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 439, -3, 567, -291, 567, 309 )
+polygon = PoolVector2Array( 23, -227, 87, -227, 87, -86.6813, 311, -59, 87, -35.0092, 87, 253, 23, 253 )
 palette = 3
 
 [node name="background" parent="." instance=ExtResource( 5 )]
