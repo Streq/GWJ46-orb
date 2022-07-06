@@ -150,6 +150,7 @@ follow_ball={
 2d_physics/layer_4="attraction"
 2d_physics/layer_5="floor"
 2d_physics/layer_6="water"
+2d_physics/layer_8="goaled"
 
 [physics]
 

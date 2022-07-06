@@ -29,12 +29,12 @@ input_pickable = false
 been_hit = true
 
 [node name="orb8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 672, 144 )
+position = Vector2( 480, 184 )
 input_pickable = false
 been_hit = true
 
 [node name="orb9" parent="." instance=ExtResource( 3 )]
-position = Vector2( 496, 480 )
+position = Vector2( 480, 448 )
 input_pickable = false
 been_hit = true
 
@@ -56,6 +56,12 @@ been_hit = true
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 472, 320 )
 
+[node name="goal_zone3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 520, 408 )
+
+[node name="goal_zone2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 520, 232 )
+
 [node name="camera" parent="." instance=ExtResource( 6 )]
 position = Vector2( 513, 300 )
 
@@ -68,6 +74,7 @@ polygon = PoolVector2Array( 1958, 3, 246, 3, -10, 3, -178, 3, -266, 3, -458, 3, 
 palette = 4
 
 [node name="background" parent="." instance=ExtResource( 11 )]
+palette = 6
 
 [node name="attraction_orb" parent="." instance=ExtResource( 5 )]
 position = Vector2( 768, 320 )
@@ -75,8 +82,8 @@ position = Vector2( 768, 320 )
 [node name="poly_wall" parent="." instance=ExtResource( 7 )]
 
 [node name="Polygon2D" parent="poly_wall" index="0"]
-color = Color( 0.00784314, 0.321569, 0.254902, 1 )
-polygon = PoolVector2Array( 512, 96, 512, 552, 536, 552, 536, 96 )
-palette = 3
+color = Color( 0.00784314, 0.27451, 0.301961, 1 )
+polygon = PoolVector2Array( 520, 280, 520, 360, 576, 408, 784, 408, 784, 384, 576, 384, 536, 352, 536, 288, 576, 256, 784, 256, 784, 232, 576, 232 )
+palette = 7
 
 [editable path="poly_wall"]
