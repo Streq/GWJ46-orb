@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/test/balls_test.gd" type="Script" id=1]
 [ext_resource path="res://src/terrain/goal_zone.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/orbs/slot.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/terrain/water_poly.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/terrain/background.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/orbs/orb.gd" type="Script" id=12]
 
 [node name="Node2D2" type="Node2D" groups=["level"]]
 script = ExtResource( 1 )
@@ -22,6 +23,7 @@ layers = 2
 [node name="orb5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 192, 160 )
 input_pickable = false
+script = ExtResource( 12 )
 
 [node name="goal_zone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 192, 512 )
@@ -49,6 +51,7 @@ palette = 6
 
 [node name="repulsion_orb" parent="." instance=ExtResource( 7 )]
 position = Vector2( 832, 328 )
+script = ExtResource( 12 )
 
 [node name="slot" parent="." instance=ExtResource( 9 )]
 position = Vector2( 536, 336 )

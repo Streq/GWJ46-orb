@@ -100,3 +100,4 @@ position = Vector2( 512, 332 )
 scale = Vector2( 25.0236, 30.3516 )
 
 [node name="background" parent="." instance=ExtResource( 10 )]
+palette = 2

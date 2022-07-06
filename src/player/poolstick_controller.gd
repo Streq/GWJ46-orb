@@ -55,6 +55,7 @@ func _physics_process(delta):
 			poolstick.global_position = Math.clamp_to_radius(mouse_pos, point_of_impulse, max_dist)
 			poolstick.global_rotation = point_of_impulse.angle_to_point(mouse_pos)
 			point_of_release = poolstick.global_position
+			selected._on_aim()
 			if Input.is_action_just_released("selected"):
 				_change_state(SHOOTING)
 			elif Input.is_action_just_pressed("anchor_camera"):

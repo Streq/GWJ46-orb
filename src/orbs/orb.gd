@@ -13,16 +13,31 @@ onready var skip_sound = $bola_pasa_por_agua
 
 onready var hittable_glow = $hittable_glow
 onready var mouseover_particles = $mouseover_particles
+onready var mouseover_aura = $mouseover_aura
 onready var dead_ball = $modulate/Sprite/been_hit
+onready var aura = $aura
 var unsinkable = false
 
 var sinking = false
+var magic_particles = false
+
+
+func _ready():
+	magic_particles = !been_hit
+	update_display()
+	
+func update_display():
+	hittable_glow.emitting = magic_particles
+	
+	aura.visible = !been_hit
 
 func set_been_hit(val):
 	been_hit = val
 	if !hittable_glow:
 		yield(self, "ready")
-	hittable_glow.visible = !val
+	hittable_glow.emitting = !val
+	aura.visible = !val
+#	hittable_glow.visible = val
 
 
 func sink():
@@ -32,7 +47,8 @@ func sink():
 		linear_damp = 10.0
 		anim.play("sink")
 		hittable_glow.visible = false
-		
+		aura.visible = false
+		been_hit = true
 
 func is_on_floor():
 	floor_detect.get_overlapping_areas().size()>0
@@ -71,14 +87,25 @@ func _on_orb_body_entered(body):
 			$rebote.playing = true
 		
 
-func _on_mouse_entered():
-	mouseover_particles.visible = !been_hit
+func _on_aim():
+	_on_mouse_entered()
 	mouseover_particles.emitting = !been_hit
+
+func _on_mouse_entered():
+#	mouseover_particles.visible = !been_hit
+	mouseover_aura.visible = !been_hit
 	dead_ball.visible = been_hit
+	
 
 func _on_mouse_exited():
-	mouseover_particles.visible = false
+#	mouseover_particles.visible = false
 	mouseover_particles.emitting = false
+	mouseover_aura.visible = false
 	dead_ball.visible = false
 
 
+
+
+func _on_orb_sleeping_state_changed():
+	magic_particles = magic_particles and (!sleeping or !been_hit)
+	update_display()
