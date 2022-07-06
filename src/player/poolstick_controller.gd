@@ -46,16 +46,11 @@ func _physics_process(delta):
 			if orbs:
 #				print("hit something")
 				selected = orbs[0].collider
-				if (selected.sleeping or selected.linear_velocity.is_equal_approx(Vector2.ZERO)) and !selected.been_hit:
+				if (selected.sleeping or selected.linear_velocity.is_equal_approx(Vector2.ZERO)):
 					selected._on_mouse_entered()
-					if Input.is_action_just_pressed("selected"):
-						point_of_impulse = selected.global_position
-						_change_state(AIMING)
-						
-				
-			else:
-				pass
-#				print("no hit")
+					if !selected.been_hit and Input.is_action_just_pressed("selected"):
+							point_of_impulse = selected.global_position
+							_change_state(AIMING)
 		AIMING:
 			poolstick.global_position = Math.clamp_to_radius(mouse_pos, point_of_impulse, max_dist)
 			poolstick.global_rotation = point_of_impulse.angle_to_point(mouse_pos)

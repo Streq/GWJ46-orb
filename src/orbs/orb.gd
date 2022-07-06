@@ -11,16 +11,19 @@ onready var anim = $AnimationPlayer
 onready var floor_detect = $floor_detect
 onready var skip_sound = $bola_pasa_por_agua
 
+onready var hittable_glow = $hittable_glow
+onready var mouseover_particles = $mouseover_particles
+onready var dead_ball = $modulate/Sprite/been_hit
 var unsinkable = false
 
 var sinking = false
 
 func set_been_hit(val):
 	been_hit = val
-	if !been_hit:
-		$modulate.modulate = Color.white
-	else:
-		$modulate.modulate = Color.white.darkened(0.5)
+	if !hittable_glow:
+		yield(self, "ready")
+	hittable_glow.visible = !val
+
 
 func sink():
 	if !unsinkable:
@@ -28,6 +31,8 @@ func sink():
 		sinking = true
 		linear_damp = 10.0
 		anim.play("sink")
+		hittable_glow.visible = false
+		
 
 func is_on_floor():
 	floor_detect.get_overlapping_areas().size()>0
@@ -66,9 +71,14 @@ func _on_orb_body_entered(body):
 			$rebote.playing = true
 		
 
-onready var hittable_glow = $hittable_glow
 func _on_mouse_entered():
-	hittable_glow.visible = !been_hit
+	mouseover_particles.visible = !been_hit
+	mouseover_particles.emitting = !been_hit
+	dead_ball.visible = been_hit
 
 func _on_mouse_exited():
-	hittable_glow.visible = false
+	mouseover_particles.visible = false
+	mouseover_particles.emitting = false
+	dead_ball.visible = false
+
+
