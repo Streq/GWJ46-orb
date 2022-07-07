@@ -1,5 +1,6 @@
 extends Node
 
+signal level_changed(level)
 
 onready var levels = get_children()
 var current_level = -1 setget set_current_level
@@ -43,6 +44,7 @@ const SAVE_PATH = "user://pulf.save"
 
 func set_current_level(val):
 	current_level = val
+	emit_signal("level_changed", current_level)
 	if current_level > highest_available:
 		highest_available = current_level
 		_save()

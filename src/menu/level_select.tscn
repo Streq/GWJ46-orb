@@ -28,7 +28,6 @@ margin_top = -211.0
 margin_bottom = -178.0
 
 [node name="background" parent="." instance=ExtResource( 3 )]
-palette = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_left = 0.857
