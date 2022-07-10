@@ -31,6 +31,8 @@ texture = ExtResource( 2 )
 
 [node name="acorde" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+volume_db = 10.0
+bus = "music"
 
 [node name="buchaca" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )

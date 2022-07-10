@@ -15,29 +15,53 @@ onready var hittable_glow = $hittable_glow
 onready var mouseover_particles = $mouseover_particles
 onready var mouseover_aura = $mouseover_aura
 onready var dead_ball = $modulate/Sprite/been_hit
+onready var modulate_node = $modulate
 onready var aura = $aura
+onready var tween = $Tween
 var unsinkable = false
 
 var sinking = false
 var magic_particles = false
 
+export var HIT_EXPLOSION: PackedScene
+
 
 func _ready():
 	magic_particles = !been_hit
 	update_display()
+	set_been_hit(been_hit)
 	
 func update_display():
 	hittable_glow.emitting = magic_particles
 	
-	aura.visible = !been_hit
+#	aura.visible = !been_hit
 
+var first_set = true
 func set_been_hit(val):
+	if first_set:
+		first_set = false
+		if !hittable_glow:
+			yield(self, "ready")
+		modulate_node.modulate = Color.white if val else Color(2.0,2.0,2.0)
+	#	aura.visible = !val
+		
+		hittable_glow.visible = !val
+	elif been_hit!=val:
+		var start
+		var end
+		var glow_start
+		var glow_end
+		if val:
+			start = Color(2.0,2.0,2.0)
+			end = Color.white
+		else:
+			start = Color.white
+			end = Color(2.0,2.0,2.0)
+
+		tween.interpolate_property(modulate_node, "modulate", start, end, 1.0)
+#		tween.interpolate_property(hittable_glow, "amount", glow_start, glow_end, 1.0)
+		tween.start()
 	been_hit = val
-	if !hittable_glow:
-		yield(self, "ready")
-	hittable_glow.emitting = !val
-	aura.visible = !val
-#	hittable_glow.visible = val
 
 
 func sink():
@@ -47,7 +71,7 @@ func sink():
 		linear_damp = 10.0
 		anim.play("sink")
 		hittable_glow.visible = false
-		aura.visible = false
+#		aura.visible = false
 		been_hit = true
 
 func is_on_floor():
@@ -85,21 +109,39 @@ func _on_orb_body_entered(body):
 		else:
 			$rebote.volume_db = (loudness-1)*10.0
 			$rebote.playing = true
-		
+	_on_hit(linear_velocity)
 
 func _on_aim():
 	_on_mouse_entered()
 	mouseover_particles.emitting = !been_hit
+	hittable_glow.emitting = magic_particles
 
+
+func _on_hit(force : Vector2):
+#	magic_particles = magic_particles and (!sleeping or !been_hit)
+#	update_display()
+
+	var current_glow = modulate_node.modulate.r - 1.0
+	if current_glow > 0.0:
+		var hit_explosion = HIT_EXPLOSION.instance()
+		hit_explosion.global_position = global_position
+		hit_explosion.direction = force
+		hit_explosion.initial_velocity = force.length()/2.0
+		hit_explosion.amount = force.length()/5.0*current_glow
+		hit_explosion.emitting = true
+		get_tree().current_scene.add_child(hit_explosion)
+	
+	pass
 func _on_mouse_entered():
 #	mouseover_particles.visible = !been_hit
 	mouseover_aura.visible = !been_hit
 	dead_ball.visible = been_hit
-	
+#	hittable_glow.emitting = !been_hit
 
 func _on_mouse_exited():
 #	mouseover_particles.visible = false
 	mouseover_particles.emitting = false
+#	hittable_glow.emitting = false
 	mouseover_aura.visible = false
 	dead_ball.visible = false
 
@@ -107,5 +149,5 @@ func _on_mouse_exited():
 
 
 func _on_orb_sleeping_state_changed():
-	magic_particles = magic_particles and (!sleeping or !been_hit)
+	magic_particles = magic_particles and (!been_hit)
 	update_display()

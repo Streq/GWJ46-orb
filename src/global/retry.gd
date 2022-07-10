@@ -57,3 +57,8 @@ func _on_pause_pressed():
 
 func _on_retry_pressed():
 	Levels.reload_current_level()
+
+func _on_music_pressed():
+	pass
+
+

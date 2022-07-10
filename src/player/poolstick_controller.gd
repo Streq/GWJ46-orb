@@ -91,8 +91,10 @@ func _change_state(new_state:int):
 			yield(tween, "tween_all_completed")
 			var impulse = get_power()*impulse_multiplier
 			if selected.sleeping or selected.linear_velocity.is_equal_approx(Vector2.ZERO):
-				selected.apply_impulse(selected.to_local(point_of_impulse), (point_of_impulse-point_of_release).normalized()*impulse)
+				var impulse_vec = (point_of_impulse-point_of_release).normalized()*impulse
+				selected.apply_central_impulse(impulse_vec)
 				selected.been_hit = true
+				selected._on_hit(impulse_vec)
 				hit_sound.play()
 				get_tree().create_timer(0.3).connect("timeout", self, "_change_state", [IDLE])
 			else:

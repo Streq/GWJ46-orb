@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/texture/Orb-JUEGO-BOLA.png" type="Texture" id=1]
 [ext_resource path="res://src/orbs/orb.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/audio/sfx/Bola_Pasa_Por_Agua.ogg" type="AudioStream" id=6]
 [ext_resource path="res://src/util/circle_polygon.gd" type="Script" id=7]
 [ext_resource path="res://assets/texture/done.png" type="Texture" id=8]
+[ext_resource path="res://src/orbs/hit_explosion.tscn" type="PackedScene" id=9]
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
@@ -15,7 +16,7 @@ bounce = 1.0
 
 [sub_resource type="Gradient" id=10]
 offsets = PoolRealArray( 0.508621, 1 )
-colors = PoolColorArray( 1, 1, 0.453125, 1, 1, 1, 1, 0 )
+colors = PoolColorArray( 2, 2, 0.45, 1, 1, 1, 1, 0 )
 
 [sub_resource type="CircleShape2D" id=6]
 
@@ -165,10 +166,13 @@ contacts_reported = 5
 contact_monitor = true
 linear_damp = 0.4
 script = ExtResource( 2 )
+HIT_EXPLOSION = ExtResource( 9 )
 
 [node name="aura" type="Polygon2D" parent="."]
 visible = false
+modulate = Color( 2, 2, 2, 1 )
 color = Color( 1, 1, 0, 1 )
+antialiased = true
 polygon = PoolVector2Array( -5.24537e-07, 12, -2.34108, 11.7694, -4.5922, 11.0866, -6.66684, 9.97764, -8.48528, 8.48528, -9.97764, 6.66684, -11.0866, 4.5922, -11.7694, 2.34108, -12, -1.04907e-06, -11.7694, -2.34108, -11.0866, -4.5922, -9.97763, -6.66684, -8.48528, -8.48528, -6.66684, -9.97764, -4.5922, -11.0866, -2.34108, -11.7694, 1.43099e-07, -12, 2.34108, -11.7694, 4.5922, -11.0866, 6.66685, -9.97763, 8.48528, -8.48528, 9.97764, -6.66684, 11.0866, -4.5922, 11.7694, -2.34108, 12, 2.09815e-06, 11.7694, 2.34109, 11.0866, 4.59221, 9.97764, 6.66684, 8.48528, 8.48528, 6.66684, 9.97764, 4.5922, 11.0866, 2.34108, 11.7694 )
 
 [node name="circle_polygon" type="Node" parent="aura"]
@@ -178,12 +182,13 @@ radius = 12.0
 [node name="mouseover_aura" type="Polygon2D" parent="."]
 visible = false
 z_index = -1
-color = Color( 1, 1, 0, 1 )
-polygon = PoolVector2Array( -6.11959e-07, 14, -2.73126, 13.731, -5.35757, 12.9343, -7.77798, 11.6406, -9.8995, 9.8995, -11.6406, 7.77798, -12.9343, 5.35757, -13.731, 2.73126, -14, -1.22392e-06, -13.731, -2.73126, -12.9343, -5.35757, -11.6406, -7.77798, -9.89949, -9.8995, -7.77798, -11.6406, -5.35757, -12.9343, -2.73127, -13.731, 1.66948e-07, -14, 2.73127, -13.731, 5.35757, -12.9343, 7.77799, -11.6406, 9.89949, -9.8995, 11.6406, -7.77798, 12.9343, -5.35757, 13.731, -2.73126, 14, 2.44784e-06, 13.731, 2.73127, 12.9343, 5.35757, 11.6406, 7.77798, 9.8995, 9.8995, 7.77798, 11.6406, 5.35757, 12.9343, 2.73126, 13.731 )
+color = Color( 2, 2, 0, 1 )
+antialiased = true
+polygon = PoolVector2Array( -4.80825e-07, 11, -2.14599, 10.7886, -4.20952, 10.1627, -6.11127, 9.14617, -7.77817, 7.77817, -9.14617, 6.11127, -10.1627, 4.20952, -10.7886, 2.14599, -11, -9.61651e-07, -10.7886, -2.14599, -10.1627, -4.20952, -9.14616, -6.11127, -7.77817, -7.77818, -6.11127, -9.14617, -4.20952, -10.1627, -2.14599, -10.7886, 1.31174e-07, -11, 2.14599, -10.7886, 4.20952, -10.1627, 6.11127, -9.14616, 7.77817, -7.77818, 9.14617, -6.11127, 10.1627, -4.20952, 10.7886, -2.14599, 11, 1.9233e-06, 10.7886, 2.146, 10.1627, 4.20952, 9.14617, 6.11127, 7.77817, 7.77817, 6.11127, 9.14617, 4.20952, 10.1627, 2.14599, 10.7886 )
 
 [node name="circle_polygon" type="Node" parent="mouseover_aura"]
 script = ExtResource( 7 )
-radius = 14.0
+radius = 11.0
 
 [node name="mouseover_particles" type="CPUParticles2D" parent="."]
 emitting = false
@@ -198,8 +203,7 @@ color = Color( 1, 1, 0, 1 )
 [node name="hittable_glow" type="CPUParticles2D" parent="."]
 position = Vector2( -10, -10 )
 z_index = 1
-emitting = false
-amount = 100
+amount = 200
 lifetime = 2.0
 preprocess = 1.0
 local_coords = false
@@ -207,7 +211,7 @@ emission_shape = 4
 emission_points = PoolVector2Array( 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 1, 5, 1, 6, 1, 7, 1, 12, 1, 13, 1, 14, 2, 3, 2, 4, 2, 5, 2, 14, 2, 15, 2, 16, 3, 2, 3, 3, 3, 16, 3, 17, 4, 2, 4, 17, 5, 1, 5, 2, 5, 17, 5, 18, 6, 1, 6, 18, 7, 0, 7, 1, 7, 18, 7, 19, 8, 0, 8, 19, 9, 0, 9, 19, 10, 0, 10, 19, 11, 0, 11, 19, 12, 0, 12, 1, 12, 18, 12, 19, 13, 1, 13, 18, 14, 1, 14, 2, 14, 17, 14, 18, 15, 2, 15, 17, 16, 2, 16, 3, 16, 16, 16, 17, 17, 3, 17, 4, 17, 5, 17, 14, 17, 15, 17, 16, 18, 5, 18, 6, 18, 7, 18, 12, 18, 13, 18, 14, 19, 7, 19, 8, 19, 9, 19, 10, 19, 11, 19, 12 )
 emission_normals = PoolVector2Array( -0.966335, -0.257288, -0.991255, -0.131961, -1, 7.9349e-09, -1, 7.9349e-09, -0.991255, 0.131961, -0.966335, 0.257288, -0.925345, -0.379127, -0.925507, -0.378731, -0.958106, -0.286415, -0.958106, 0.286415, -0.925507, 0.378731, -0.925345, 0.379127, -0.795888, -0.605444, -0.925507, -0.378731, -0.895695, -0.444669, -0.895695, 0.444669, -0.925507, 0.378731, -0.795888, 0.605444, -0.605444, -0.795888, -0.707107, -0.707107, -0.707107, 0.707107, -0.605444, 0.795888, -0.378731, -0.925507, -0.378731, 0.925507, -0.379127, -0.925345, -0.444669, -0.895695, -0.444669, 0.895695, -0.379127, 0.925345, -0.378731, -0.925507, -0.378731, 0.925507, -0.257288, -0.966335, -0.286415, -0.958106, -0.286415, 0.958106, -0.257288, 0.966335, -0.131961, -0.991255, -0.131961, 0.991255, 7.9349e-09, -1, 7.9349e-09, 1, 7.9349e-09, -1, 7.9349e-09, 1, 0.131961, -0.991255, 0.131961, 0.991255, 0.257288, -0.966335, 0.286415, -0.958106, 0.286415, 0.958106, 0.257288, 0.966335, 0.378731, -0.925507, 0.378731, 0.925507, 0.379127, -0.925345, 0.444669, -0.895695, 0.444669, 0.895695, 0.379127, 0.925345, 0.378731, -0.925507, 0.378731, 0.925507, 0.605444, -0.795888, 0.707107, -0.707107, 0.707107, 0.707107, 0.605444, 0.795888, 0.795888, -0.605444, 0.925507, -0.378731, 0.895695, -0.444669, 0.895695, 0.444669, 0.925507, 0.378731, 0.795888, 0.605444, 0.925345, -0.379127, 0.925507, -0.378731, 0.958106, -0.286415, 0.958106, 0.286415, 0.925507, 0.378731, 0.925345, 0.379127, 0.966335, -0.257288, 0.991255, -0.131961, 1, 1.58698e-08, 1, 1.58698e-08, 0.991255, 0.131961, 0.966335, 0.257288 )
 emission_colors = PoolColorArray(  )
-spread = 180.0
+spread = 90.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 2.0
 color_ramp = SubResource( 10 )
@@ -262,9 +266,11 @@ volume_db = -4.436
 [node name="bola_pasa_por_agua" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_orb_body_entered"]
-[connection signal="mouse_entered" from="." to="." method="_on_orb_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_orb_mouse_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="sleeping_state_changed" from="." to="." method="_on_orb_sleeping_state_changed"]
 [connection signal="area_entered" from="floor_detect" to="." method="_on_floor_detect_area_entered" flags=3]
 [connection signal="area_exited" from="floor_detect" to="." method="_on_floor_detect_area_exited" flags=3]

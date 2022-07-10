@@ -31,5 +31,6 @@ polygon = PoolVector2Array( 0, 0, 0, 600, 1024, 600, 1024, 0, 0, 0, 64, 64, 800,
 palette = 3
 
 [node name="background" parent="." instance=ExtResource( 7 )]
+palette = 2
 
 [editable path="poly_wall"]

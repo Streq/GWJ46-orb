@@ -28,20 +28,20 @@ current = false
 position = Vector2( 457, 291 )
 
 [node name="Polygon2D" parent="poly_wall" index="0"]
-color = Color( 0.00784314, 0.27451, 0.301961, 1 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( 439, -11, 567, -291, -457, -291, -457, 309, 567, 309, 439, 5, 407, 93, -329, 93, -329, -99, 407, -99 )
-palette = 7
+palette = 3
 
 [node name="poly_wall2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 457, 291 )
 
 [node name="Polygon2D" parent="poly_wall2" index="0"]
-color = Color( 0.00784314, 0.27451, 0.301961, 1 )
+color = Color( 0.00784314, 0.321569, 0.254902, 1 )
 polygon = PoolVector2Array( 439, -3, 567, -291, 567, 309 )
-palette = 7
+palette = 3
 
 [node name="background" parent="." instance=ExtResource( 5 )]
-palette = 6
+palette = 2
 
 [editable path="poly_wall"]
 [editable path="poly_wall2"]

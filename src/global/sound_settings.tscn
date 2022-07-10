@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/menu/level_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/shader/recolor_keep_alpha.gdshader" type="Shader" id=2]
+[ext_resource path="res://assets/texture/music.png" type="Texture" id=3]
+[ext_resource path="res://src/global/sound_settings.gd" type="Script" id=4]
+[ext_resource path="res://src/menu/banned.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/texture/speaker.png" type="Texture" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/red = 1.0
+shader_param/color = Color( 0.976471, 0.807843, 0.760784, 1 )
+
+[node name="sound_settings" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="pivot" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/separation = 10
+
+[node name="speaker" parent="pivot" instance=ExtResource( 1 )]
+text = ""
+
+[node name="TextureRect" type="TextureRect" parent="pivot/speaker"]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -24.0
+margin_right = 24.0
+margin_bottom = 24.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="banned" parent="pivot/speaker" instance=ExtResource( 5 )]
+visible = false
+
+[node name="music" parent="pivot" instance=ExtResource( 1 )]
+margin_left = 74.0
+margin_right = 138.0
+text = ""
+
+[node name="TextureRect" type="TextureRect" parent="pivot/music"]
+material = SubResource( 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -24.0
+margin_right = 24.0
+margin_bottom = 24.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="banned" parent="pivot/music" instance=ExtResource( 5 )]
+visible = false
+
+[connection signal="mute" from="." to="pivot/speaker/banned" method="_on_disabled"]
+[connection signal="mute_music" from="." to="pivot/music/banned" method="_on_disabled"]
+[connection signal="pressed" from="pivot/speaker" to="." method="_on_speaker_pressed"]
+[connection signal="pressed" from="pivot/music" to="." method="_on_music_pressed"]

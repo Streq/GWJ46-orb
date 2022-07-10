@@ -12,12 +12,9 @@ absorbent = true
 collision_layer = 11
 physics_material_override = SubResource( 2 )
 
-[node name="modulate" parent="." index="2"]
-modulate = Color( 0, 1, 1, 1 )
-
 [node name="attraction_area" parent="." index="3" instance=ExtResource( 2 )]
 
-[node name="Polygon2D" parent="." index="11"]
-polygon = PoolVector2Array( -1.39876e-06, 32, -6.24289, 31.3851, -12.2459, 29.5641, -17.7782, 26.607, -22.6274, 22.6274, -26.607, 17.7782, -29.5641, 12.2459, -31.3851, 6.24289, -32, -2.79753e-06, -31.3851, -6.24289, -29.5641, -12.2459, -26.607, -17.7782, -22.6274, -22.6274, -17.7782, -26.607, -12.2459, -29.5641, -6.24289, -31.3851, 3.81596e-07, -32, 6.24289, -31.3851, 12.2459, -29.5641, 17.7783, -26.607, 22.6274, -22.6274, 26.607, -17.7782, 29.5641, -12.2459, 31.3851, -6.24289, 32, 5.59506e-06, 31.3851, 6.2429, 29.5641, 12.2459, 26.607, 17.7782, 22.6274, 22.6274, 17.7782, 26.607, 12.2459, 29.5641, 6.24288, 31.3851 )
+[node name="Sprite" parent="modulate" index="0"]
+self_modulate = Color( 0, 1, 1, 1 )
 
 [connection signal="sinking" from="." to="attraction_area" method="queue_free"]
